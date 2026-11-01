@@ -12,7 +12,7 @@ Download een toekomstige versie alleen via de officiële projectbron en controle
 
 ## Windows en Linux
 
-Er is een ongetekend draagbaar Windows x64-testpakket beschikbaar om te bouwen, maar het is nog niet gevalideerd op Windows en is geen installatieprogramma of officiële release. Pak het hele ZIP-bestand uit en start Takevera.exe; Windows kan waarschuwen of de app blokkeren. De Linux-versie is uitgesteld. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
+Er is een ongetekend draagbaar Windows x64-testpakket beschikbaar om te bouwen, maar het is nog niet gevalideerd op Windows en is geen installatieprogramma of officiële release. Pak het hele ZIP-bestand uit en start Takevera.exe; Windows kan waarschuwen of de app blokkeren. Voor Linux x64 is een draagbaar testpakket beschikbaar: pak het tar.gz-bestand volledig uit en start `./takevera` in de uitgepakte map. Een grafische omgeving en een werkende Chromium-sandbox zijn vereist; het is geen installatieprogramma of AppImage. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
 
 ## Hulp vinden
 

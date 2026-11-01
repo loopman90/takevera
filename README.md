@@ -35,7 +35,7 @@ There are **no published releases yet**. Existing local development packages mus
 | --- | --- |
 | macOS 13+ | Apple Silicon and Intel packages can be built. Local builds are ad-hoc signed, without Apple Developer ID signing or notarization. Intel hardware testing remains outstanding. |
 | Windows x64 | An unsigned portable test archive can be built; Windows runtime and installer validation are still required. |
-| Linux x64 | Development is deferred; the experimental portable archive is not a tested release. |
+| Linux x64 | A portable test archive is available. Installation and interactive use across distributions need further validation. |
 
 macOS development build: open the DMG and drag Takevera to Applications. Keep an independent backup before replacing an existing installation. There is no automatic update service.
 
@@ -62,7 +62,7 @@ npm test
 npm run build:renderer
 ```
 
-On macOS, `npm run test:smoke` and `npm run test:storage` run isolated Electron checks. Build a local macOS package with `npm run dist:mac` for the current architecture or `npm run dist:mac:x64` for Intel. Windows has an unsigned portable test builder and a manual Windows CI workflow; neither is an approved installer or release. Linux release builds are deferred. A build succeeding on one machine does not verify runtime behaviour on another platform. macOS release signing and notarization require developer credentials and separate approval; never commit them. See the [technical reference](docs/TECHNICAL_REFERENCE.md).
+On macOS, `npm run test:smoke` and `npm run test:storage` run isolated Electron checks. Build a local macOS package with `npm run dist:mac` for the current architecture or `npm run dist:mac:x64` for Intel. Windows has an unsigned portable test builder and a manual Windows CI workflow; neither is an approved installer or release. Linux x64 has a portable test builder and a manual Linux CI workflow; it is not an installer or AppImage. A build succeeding on one machine does not verify runtime behaviour on another platform. macOS release signing and notarization require developer credentials and separate approval; never commit them. See the [technical reference](docs/TECHNICAL_REFERENCE.md).
 
 ## Website and screenshots
 
@@ -91,3 +91,7 @@ Track individual physical equipment units and enter bookings with local start an
 ### Windows x64 test package
 
 On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer or a published release. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The workflow must actually pass before Windows compatibility is claimed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.
+
+### Linux x64 test package
+
+The Linux x64 test archive is portable, not an installer. Extract the whole archive and run `./takevera` from the extracted folder on a graphical desktop with a working Chromium sandbox. It is built and checked by the manual `linux-test.yml` workflow. Linux desktop distributions and credential stores vary; interactive testing remains necessary. Local OCR for scanned PDFs is unavailable on Linux.

@@ -13,7 +13,7 @@ Obtain any future release from the official project source and check that it is 
 
 ## Windows and Linux
 
-An unsigned portable Windows x64 test package can be built, but has not yet been validated on Windows and is not an installer or official release. Extract the whole ZIP and open Takevera.exe; Windows may warn or block it. Linux release development is deferred. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
+An unsigned portable Windows x64 test package can be built, but has not yet been validated on Windows and is not an installer or official release. Extract the whole ZIP and open Takevera.exe; Windows may warn or block it. A portable Linux x64 test archive is available: extract the full tar.gz file and run `./takevera` in the extracted folder. A graphical desktop and a working Chromium sandbox are required; this is not an installer or AppImage. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
 
 ## Find help
 
