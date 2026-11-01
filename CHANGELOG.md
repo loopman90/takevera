@@ -4,19 +4,23 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
+- Dedicated settings for Claude, Gemini and Grok and version 0.1.1 packages are in preparation; they are not yet published.
+
+## 0.1.0-beta.1 — 2026-11-01
+
 ### Added
 
 - Local-first desktop workspace for scripts, project details and production planning.
 - Shot, equipment, light and sound plans; visual references and print/PDF output.
 - English and Dutch interface and in-app guidance.
 - Optional configurable AI and self-hosted collaboration.
-- Local-only static project website and publication preparation.
+- Public GitHub Pages website and an initial beta release with macOS, Windows x64 and Linux x64 test downloads.
 
 ### Changed
 
 - New installations start without built-in example projects; existing user projects are preserved.
 
-- Focus release preparation on macOS and replace the previous build tool; Windows and Linux release builds are deferred.
+- The macOS build no longer uses the earlier build tool; Windows and Linux packages are portable test builds.
 
 - Document the planned open-source macOS distribution without paid Apple signing and explain the related macOS warning.
 
@@ -33,8 +37,8 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ### Known limitations
 
-- No official public release has been published. Local Windows and Linux packages have not been interactively validated on their target platforms.
+- The beta is a test release. Windows and Linux packages have automated startup checks but need further interactive validation.
 - macOS development packages are not notarized; Windows development packages are unsigned.
 - Some file conversions omit formatting and metadata; see the user guide.
 
-Source package version: **0.1.0** (development; not a published release).
+Source package version: **0.1.0** for the published beta; **0.1.1** is in preparation.

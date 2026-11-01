@@ -23,3 +23,8 @@ On macOS with dependencies installed, run `./node_modules/.bin/electron scripts/
 ## Publication boundaries
 
 `.github/workflows/deploy-pages.yml` runs only by manual dispatch on `main` with explicit publication and screenshot-review inputs. Confirm the `github-pages` environment is protected and verify repository visibility before enabling it. Never dispatch it merely because a private repository has been created. GitHub Pages can be public independently of repository visibility. Release binaries and URLs must not be added until reviewed and explicitly approved.
+
+
+## Patch notes and releases
+
+When preparing each new release, update the repository `CHANGELOG.md`; the website builds its patch notes from that file automatically. Keep the current public release and unreleased work clearly separate. Update version and download links only when their corresponding release and assets are available, review platform and privacy limitations, then rebuild and publish the site using the approved Pages workflow. Update the notes for significant fixes as well as new features.
