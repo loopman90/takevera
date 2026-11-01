@@ -312,7 +312,7 @@
   "optional": "Optioneel",
   "aiAssist": "AI-schrijfhulp",
   "aiConfiguration": "AI instellen",
-  "aiConfigurationHint": "Gebruik een lokale modelserver of een eigen OpenAI-compatibele API. Er worden pas gegevens verstuurd wanneer je in de editor een suggestie aanvraagt en dit bevestigt.",
+  "aiConfigurationHint": "Kies Claude, Gemini, Grok, een lokale modelserver of een compatibele API. Gegevens worden pas verstuurd nadat je de aanvraag hebt bekeken en bevestigd.",
   "provider": "Aanbieder",
   "compatibleProvider": "OpenAI-compatibel endpoint",
   "localProvider": "Lokaal model op dit apparaat",
@@ -1079,7 +1079,13 @@
     "Unsupported, invalid, or oversized image": "Afbeelding wordt niet ondersteund, is ongeldig of is te groot",
     "Use a WSS URL or a WS URL on localhost": "Gebruik een WSS-URL of een WS-URL voor localhost",
     "Use an HTTPS endpoint or an HTTP endpoint on localhost": "Gebruik een HTTPS-eindpunt of een HTTP-eindpunt op localhost",
-    "Weather request is invalid": "Ongeldige weersaanvraag"
+    "Weather request is invalid": "Ongeldige weersaanvraag",
+    "Provide a new API key or remove the saved key when changing AI provider or endpoint": "Vul een nieuwe API-sleutel in of verwijder de opgeslagen sleutel als je van aanbieder of API-adres wisselt.",
+    "Enter an API key for the selected AI provider": "Vul een API-sleutel in voor de gekozen AI-aanbieder.",
+    "Invalid Claude workspace ID": "De Claude-workspace-ID is ongeldig.",
+    "Claude response was cut short; try a shorter request": "Het antwoord van Claude is afgebroken. Probeer een kortere aanvraag.",
+    "AI provider endpoint does not match saved settings": "Het opgeslagen API-adres hoort niet bij de gekozen aanbieder.",
+    "Invalid AI provider": "Ongeldige AI-aanbieder."
   },
   "errorCodes": {
     "ENOENT": "Het gevraagde bestand of de map is niet gevonden.",
@@ -1167,5 +1173,8 @@
   "backupCreateCopy": "Volledige projectkopie maken",
   "backupPartialExplain": "De projectkopie is opgeslagen, maar sommige afbeeldingen zijn niet meegenomen. Controleer de afbeeldingen en maak daarna opnieuw een volledige kopie.",
   "backupSuccessExplain": "De projectkopie is opgeslagen. Bewaar de hele map inclusief assets op een andere schijf of locatie en controleer of je deze kunt importeren. Latere wijzigingen staan niet in deze kopie.",
-  "backupDisconnectFirst": "Verbreek eerst de live samenwerking voordat je lokale herstelpunten opent of herstelt."
+  "backupDisconnectFirst": "Verbreek eerst de live samenwerking voordat je lokale herstelpunten opent of herstelt.",
+  "aiProviderHint": "Bij Claude, Gemini en Grok vult Takevera het officiële API-adres in. Controleer de modelnaam en de API-sleutel van de gekozen aanbieder.",
+  "claudeWorkspace": "Claude-workspace-ID (optioneel)",
+  "claudeWorkspaceHint": "Vul dit alleen in als je Claude API-sleutel niet aan een workspace is gekoppeld."
 }

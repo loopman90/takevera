@@ -23,9 +23,9 @@ Takevera uses the system language on first launch when supported, otherwise Engl
 
 ## Connect AI through an API
 
-1. Open **Settings → AI configuration**. Choose an OpenAI-compatible endpoint for an external provider, or a local model when you have installed and started a model server yourself.
-2. Enter your provider’s chat-completions API base URL and exact model name. For example, a base URL ending in `/v1` becomes `/v1/chat/completions`; an endpoint already ending in `/chat/completions` is left as is. Remote endpoints require HTTPS; HTTP is allowed only for localhost. Enter the final API address: redirects are not followed for security reasons.
-3. Enter an API key if required. A local server may not need one. Save the AI settings. Secure storage must be available to save a key.
+1. Open **Settings → AI configuration**. Choose **Claude (Anthropic)**, **Gemini (Google)** or **Grok (xAI)**. Choose an OpenAI-compatible endpoint for another provider, or a local model when you run your own model server.
+2. For Claude, Gemini and Grok, Takevera fills in the official API address and an example model. Check and change the model name to one available to your account. For Claude, enter the optional workspace ID if your key is not scoped to a workspace. For another compatible provider, enter its chat-completions API base URL and exact model name. For example, a base URL ending in `/v1` becomes `/v1/chat/completions`; an endpoint already ending in `/chat/completions` is left as is. Remote endpoints require HTTPS; HTTP is allowed only for localhost. Enter the final API address: redirects are not followed for security reasons.
+3. Enter an API key if required. A local server may not need one. Save the AI settings. Secure storage must be available to save a key. When changing provider or endpoint, enter a new key or explicitly remove the saved one; keys are not carried to another provider automatically. A chat subscription does not necessarily include API access; check your provider’s terms and credits.
 4. Open a project and choose the AI assistant in **Script** or **Production**. Select a task, review the context preview and confirm. The selected information is sent to the configured endpoint. With an external provider it leaves your computer; check their terms and possible charges.
 5. Review the response. Suggestions do not automatically change the script. If the request fails, check the endpoint, model name, key and available credits; also check that a local server is running.
 

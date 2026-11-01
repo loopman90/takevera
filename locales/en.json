@@ -312,7 +312,7 @@
   "optional": "Optional",
   "aiAssist": "AI writing assistant",
   "aiConfiguration": "Configure AI",
-  "aiConfigurationHint": "Use a local model server or your own OpenAI-compatible API. Nothing is sent until you request and confirm a suggestion in the editor.",
+  "aiConfigurationHint": "Choose Claude, Gemini, Grok, a local model server or a compatible API. Data is sent only after you review and confirm the request.",
   "provider": "Provider",
   "compatibleProvider": "OpenAI-compatible endpoint",
   "localProvider": "Local model on this device",
@@ -1167,5 +1167,8 @@
   "backupCreateCopy": "Make a full project copy",
   "backupPartialExplain": "The project copy was saved, but some images were omitted. Check the images, then make another complete copy.",
   "backupSuccessExplain": "The project copy was saved. Keep the entire folder including assets on another drive or location and check that you can import it. Later changes are not included.",
-  "backupDisconnectFirst": "Disconnect live collaboration before opening or restoring local restore points."
+  "backupDisconnectFirst": "Disconnect live collaboration before opening or restoring local restore points.",
+  "aiProviderHint": "For Claude, Gemini and Grok, Takevera fills in the official API address. Check the model name and API key for the chosen provider.",
+  "claudeWorkspace": "Claude workspace ID (optional)",
+  "claudeWorkspaceHint": "Enter this only if your Claude API key is not scoped to a workspace."
 }

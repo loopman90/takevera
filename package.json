@@ -1,6 +1,6 @@
 {
   "name": "scriptstudio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Offline-first desktop studio for scripts and production books",
   "main": "src/main.cjs",
   "license": "MIT",

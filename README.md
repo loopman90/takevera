@@ -22,7 +22,7 @@ Read the [English beginner’s guide](docs/USER_GUIDE_EN.md) or [Nederlandse beg
 - **Production:** shoot days, call sheets, shot lists, equipment, tasks, budgets, and configurable production-book exports.
 - **Visual planning:** moodboards, storyboards, lighting and sound references, plus fixture markers on a reference image.
 - **Local-first:** local project files, automatic saves, backups and an independent full-project export.
-- **Optional integrations:** an OpenAI-compatible endpoint or separately installed local model server, and manually configured shared-folder or self-hosted realtime collaboration. Selected AI context is sent only after review and confirmation.
+- **Optional integrations:** Claude, Gemini, Grok, an OpenAI-compatible endpoint or separately installed local model server, and manually configured shared-folder or self-hosted realtime collaboration. Selected AI context is sent only after review and confirmation.
 - **Guidance:** English and Dutch UI, a glossary and offline help.
 
 These features are implemented in the development app; not every workflow has been independently validated on every platform. [Coverage and known limits](docs/SPEC_COVERAGE.md) and [technical reference](docs/TECHNICAL_REFERENCE.md) describe details and format restrictions.
@@ -49,7 +49,7 @@ If a future release is obtained from the official project source and you have in
 
 Projects are stored under the user's Documents/Takevera directory by default; an existing legacy ScriptStudio folder may continue to be used. Use **Settings** to change the folder, interface language, appearance and optional services. Do not commit project data or API keys. The app supports PNG, JPEG and WebP references; linked originals need to remain available.
 
-AI setup requires a compatible chat-completions API base URL and model name, plus a key if the provider requires one. An external provider receives the reviewed project context after confirmation and may charge for usage. A local server must be installed separately. Linux credential storage needs a supported secure secret store. See the [guides](docs/USER_GUIDE_EN.md) for steps and limitations.
+AI setup offers Claude, Gemini and Grok with preset endpoints, plus custom chat-completions endpoints and local servers. Enter a model available to your account and an API key when required. An external provider receives the reviewed project context after confirmation and may charge for usage. A local server must be installed separately. Linux credential storage needs a supported secure secret store. See the [guides](docs/USER_GUIDE_EN.md) for steps and limitations.
 
 ## Development and builds
 
