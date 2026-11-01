@@ -1,0 +1,39 @@
+# Dependencies and generated output
+node_modules/
+dist/
+website/dist/
+src/collaboration.bundle.js
+coverage/
+*.log
+.DS_Store
+
+# Local configuration, credentials, and user data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.db
+*.sqlite
+*.sqlite3
+*.crash
+*.ips
+.vscode/
+.idea/
+
+# Local-only audit, historical scratch copies, and user-supplied source image
+PRIVACY_AUDIT.md
+PUBLICATION_ASSESSMENT_PRIVATE.md
+/app.js
+/en.json
+/scriptstudio-logo-crop.png
+
+# Project exports and recovery data should be reviewed separately
+*.bak
+*.takevera/
+/exports/
+/backups/
+PUBLICATION_CANDIDATES_PRIVATE.md

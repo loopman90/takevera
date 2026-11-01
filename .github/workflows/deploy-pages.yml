@@ -1,0 +1,47 @@
+# Deliberately manual: a private repository must not imply approval to publish Pages.
+name: Deploy approved website
+on:
+  workflow_dispatch:
+    inputs:
+      publish_approved:
+        description: Explicit permission to publish this website publicly
+        type: boolean
+        required: true
+        default: false
+      screenshots_reviewed:
+        description: Screenshots reviewed for privacy and accuracy for this revision
+        type: boolean
+        required: true
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main' && inputs.publish_approved && inputs.screenshots_reviewed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with: {node-version: '22'}
+      - name: Require a configured, approved repository URL
+        run: node -e "const c=require('./website/site-config.json');if(!c.repositoryUrl)throw Error('Set approved repository URL before deployment')"
+      - run: node website/build.mjs
+      - run: node website/check.mjs
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        with: {path: website/dist}
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@decdde0ac072f6dcbe43649d82d9c635fff5b4e4 # v4.0.4

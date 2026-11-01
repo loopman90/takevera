@@ -1,0 +1,56 @@
+const {contextBridge,ipcRenderer,webUtils}=require('electron');
+let activeImageDropProject='',imageDropCallback=null;
+function droppedZone(event){return event.target?.closest?.('[data-image-drop-target]')||null}
+window.addEventListener('dragover',event=>{const zone=droppedZone(event);if(event.dataTransfer?.types?.includes('Files'))event.preventDefault();if(!zone)return;if(event.dataTransfer)event.dataTransfer.dropEffect='copy';zone.classList.add('image-drop-active')});
+window.addEventListener('dragleave',event=>{const zone=droppedZone(event);if(zone&&!zone.contains(event.relatedTarget))zone.classList.remove('image-drop-active')});
+window.addEventListener('drop',async event=>{const zone=droppedZone(event);if(!zone){if(event.dataTransfer?.files?.length)event.preventDefault();return}if(!activeImageDropProject){event.preventDefault();return}event.preventDefault();event.stopPropagation();zone.classList.remove('image-drop-active');if(zone.dataset.imageDropDisabled==='true'){imageDropCallback?.({projectId:activeImageDropProject,target:{kind:zone.dataset.imageDropTarget},error:'This image drop target is locked or read-only'});return}const paths=Array.from(event.dataTransfer?.files||[]).slice(0,20).map(file=>webUtils.getPathForFile(file)).filter(Boolean);if(!paths.length)return;const projectId=activeImageDropProject,target={kind:zone.dataset.imageDropTarget,index:Number(zone.dataset.imageDropIndex),entityKind:zone.dataset.imageDropKind||'',scope:zone.dataset.imageDropScope||'',single:zone.dataset.imageDropSingle==='true'};try{const images=await ipcRenderer.invoke('assets:add-dropped',projectId,target.single?paths.slice(0,1):paths);imageDropCallback?.({projectId,target,images})}catch(error){imageDropCallback?.({projectId,target,error:String(error?.message||error)})}});
+contextBridge.exposeInMainWorld('studio',{
+ helpGuide:language=>ipcRenderer.invoke('help:guide',language),
+ listProjects:()=>ipcRenderer.invoke('projects:list'),
+ listRecoverable:()=>ipcRenderer.invoke('projects:recoverable'),
+ listBackups:id=>ipcRenderer.invoke('projects:backups:list',id),
+ readBackup:(id,name)=>ipcRenderer.invoke('projects:backups:read',id,name),
+ deleteBackup:(id,name)=>ipcRenderer.invoke('projects:backups:delete',id,name),
+ createRecoveryBackup:id=>ipcRenderer.invoke('projects:recovery:create',id),
+ restoreBackup:(id,name)=>ipcRenderer.invoke('projects:backups:restore',id,name),
+ saveProject:p=>ipcRenderer.invoke('projects:save',p),
+ openExternal:url=>ipcRenderer.invoke('links:open',url),
+ deleteProject:id=>ipcRenderer.invoke('projects:delete',id),
+ addImage:id=>ipcRenderer.invoke('assets:add',id),
+ setImageDropProject:id=>{activeImageDropProject=typeof id==='string'?id:''},
+ onImageDrop:callback=>{imageDropCallback=typeof callback==='function'?callback:null},
+ checkLinkedImages:sources=>ipcRenderer.invoke('assets:check-linked',sources),
+ projectFolder:()=>ipcRenderer.invoke('projects:folder'),
+ moveProjectFolder:()=>ipcRenderer.invoke('projects:folder:move'),
+ exportProject:p=>ipcRenderer.invoke('projects:export',p),
+ importProject:()=>ipcRenderer.invoke('projects:import'),
+ exportProjectFolder:p=>ipcRenderer.invoke('projects:export-folder',p),
+ importProjectFolder:id=>ipcRenderer.invoke('projects:import-folder',id),
+ importAssets:(id,assets)=>ipcRenderer.invoke('projects:import-assets',id,assets),
+ importFountain:()=>ipcRenderer.invoke('script:fountain:import'),
+ exportFountain:(title,text)=>ipcRenderer.invoke('script:fountain:export',title,text),
+ importFDX:()=>ipcRenderer.invoke('script:fdx:import'),
+ exportFDX:(title,text,projectJson)=>ipcRenderer.invoke('script:fdx:export',title,text,projectJson),
+ importDOCX:()=>ipcRenderer.invoke('script:docx:import'),
+ exportDOCX:(title,xml,projectJson)=>ipcRenderer.invoke('script:docx:export',title,xml,projectJson),
+ importPDF:()=>ipcRenderer.invoke('script:pdf:import'),
+ getCollaborationAdminSettings:()=>ipcRenderer.invoke('collaboration-admin:settings:get'),
+ saveCollaborationAdminSettings:settings=>ipcRenderer.invoke('collaboration-admin:settings:save',settings),
+ collaborationAdminRequest:request=>ipcRenderer.invoke('collaboration-admin:request',request),
+ getCollaborationSettings:()=>ipcRenderer.invoke('collaboration:settings:get'),
+ saveCollaborationSettings:settings=>ipcRenderer.invoke('collaboration:settings:save',settings),
+ getCollaborationCredentials:()=>ipcRenderer.invoke('collaboration:settings:connect-data'),
+ getAISettings:()=>ipcRenderer.invoke('ai:settings:get'),
+ saveAISettings:settings=>ipcRenderer.invoke('ai:settings:save',settings),
+ aiComplete:prompt=>ipcRenderer.invoke('ai:complete',{prompt}),
+ fetchWeatherForecast:request=>ipcRenderer.invoke('weather:forecast',request),
+ setSpellcheckerLanguage:config=>ipcRenderer.invoke('spellcheck:configure',config),
+ setInterfaceLanguage:language=>ipcRenderer.invoke('ui:language:set',language),
+ getSyncSettings:()=>ipcRenderer.invoke('sync:settings:get'),
+ chooseSyncFolder:()=>ipcRenderer.invoke('sync:settings:choose'),
+ listSharedProjects:()=>ipcRenderer.invoke('sync:projects:list'),
+ importSharedProject:id=>ipcRenderer.invoke('sync:project:import',id),
+ checkSync:p=>ipcRenderer.invoke('sync:project:check',p),
+ resolveSync:(p,choice,hash)=>ipcRenderer.invoke('sync:project:resolve',p,choice,hash)
+});
+contextBridge.exposeInMainWorld('studioLocale',{get:lang=>ipcRenderer.invoke('locale:get',lang),systemLanguage:()=>ipcRenderer.invoke('ui:language:system')});

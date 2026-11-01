@@ -1,0 +1,74 @@
+{
+  "name": "scriptstudio",
+  "version": "0.1.0",
+  "description": "Offline-first desktop studio for scripts and production books",
+  "main": "src/main.cjs",
+  "license": "MIT",
+  "scripts": {
+    "build:renderer": "esbuild src/collaboration-client.js --bundle --format=iife --global-name=ScriptStudioCollaboration --platform=browser --target=es2022 --outfile=src/collaboration.bundle.js",
+    "start": "npm run build:renderer && electron .",
+    "dev": "npm run build:renderer && electron .",
+    "test": "node --test tests/*.test.cjs",
+    "test:smoke": "electron tests/electron-smoke.cjs",
+    "test:storage": "electron tests/electron-storage-smoke.cjs",
+    "collab:server": "node collaboration/server.mjs",
+    "collab:admin": "node collaboration/admin.mjs",
+    "dist:mac": "npm run build:renderer && node scripts/build-mac.cjs",
+    "dist:mac:x64": "npm run build:renderer && node scripts/build-mac.cjs x64",
+    "collab:admin:web": "node collaboration/admin-web.mjs",
+    "test:security": "electron tests/electron-security-smoke.cjs",
+    "test:pdf": "electron tests/electron-pdf-smoke.cjs",
+    "test:ocr": "electron tests/electron-ocr-smoke.cjs",
+    "build:linux:experimental": "npm run build:renderer && node scripts/build-linux-experimental.cjs",
+    "build:windows:experimental": "npm run build:renderer && node scripts/build-windows-experimental.cjs"
+  },
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "esbuild": "^0.28.2"
+  },
+  "build": {
+    "appId": "studio.scriptstudio.app",
+    "productName": "Takevera",
+    "files": [
+      "src/**/*",
+      "collaboration/**/*",
+      "locales/**/*",
+      "docs/USER_GUIDE_NL.md",
+      "docs/USER_GUIDE_EN.md",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity",
+      "icon": "assets/takevera.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/takevera.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Office",
+      "icon": "src/assets/takevera-logo.png",
+      "syncDesktopName": true
+    },
+    "asarUnpack": [
+      "src/ocr-pdf.swift"
+    ]
+  },
+  "author": "Takevera contributors",
+  "dependencies": {
+    "@hocuspocus/provider": "^4.8.0",
+    "@hocuspocus/server": "^4.8.0",
+    "pdfjs-dist": "6.4.299",
+    "y-indexeddb": "^9.0.12",
+    "yjs": "^13.6.33"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "desktopName": "Takevera.desktop"
+}

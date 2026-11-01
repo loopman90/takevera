@@ -1,0 +1,67 @@
+name: Verify
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checks:
+    name: Checks (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with: {node-version: '22', cache: npm}
+      - run: npm ci
+      - run: npm test
+      - run: npm run build:renderer
+      - run: node --check src/app.js
+      - run: node --check src/main.cjs
+      - run: node --check src/preload.cjs
+      - run: node website/build.mjs
+      - run: node website/check.mjs
+      - run: node scripts/check-licenses.cjs
+      - if: runner.os == 'macOS'
+        run: npm run test:smoke
+      - if: runner.os == 'macOS'
+        run: npm run test:storage
+      - if: runner.os == 'macOS'
+        run: npm run test:security
+      - if: runner.os == 'macOS'
+        run: npm run test:pdf
+      - if: runner.os == 'macOS'
+        run: npm run test:ocr
+  dependencies:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with: {node-version: '22', cache: npm}
+      - run: npm ci
+      - run: npm audit --audit-level=moderate
+  secrets:
+    name: Redacted secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: {fetch-depth: 0, persist-credentials: false}
+      - name: Install pinned Gitleaks
+        run: go install github.com/gitleaks/gitleaks/v8@v8.24.3
+      - name: Scan history and working tree without publishing findings
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! "$(go env GOPATH)/bin/gitleaks" git . --redact=100 --no-banner --report-path "$RUNNER_TEMP/git-leaks.json" > /dev/null 2>&1; then
+            echo "History scan reported findings or failed; inspect privately."; exit 1
+          fi
+          if ! "$(go env GOPATH)/bin/gitleaks" dir . --redact=100 --no-banner --report-path "$RUNNER_TEMP/tree-leaks.json" > /dev/null 2>&1; then
+            echo "Working-tree scan reported findings or failed; inspect privately."; exit 1
+          fi

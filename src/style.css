@@ -1,0 +1,18 @@
+.equipment-table{overflow:auto}.equipment-head,.equipment-row{min-width:1120px;display:grid;grid-template-columns:1.1fr .75fr .55fr .8fr .75fr 1.15fr 1.15fr 1.2fr 34px;gap:7px;align-items:start}.equipment-head{padding:8px 0;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}.equipment-row{padding:8px 0;border-top:1px solid var(--line)}.equipment-row select,.equipment-row input,.equipment-row textarea{min-width:0;width:100%;border:1px solid var(--line);border-radius:5px;padding:8px;background:var(--panel);color:var(--ink);font:inherit;font-size:12px}.equipment-row select[multiple]{min-height:82px;padding:4px}.equipment-scenes{display:grid;gap:4px;font-size:10px;color:var(--muted)}.equipment-row textarea{min-height:82px;resize:vertical}
+.lighting-setup{border-top:1px solid var(--line);margin:14px 0;padding-top:12px}.lighting-setup .section-head{margin-bottom:4px}.lighting-setup h4{margin:0;font-size:13px}.lighting-setup-row{display:grid;grid-template-columns:repeat(5,minmax(100px,1fr)) 34px;gap:7px;align-items:end;margin:8px 0}.lighting-setup-row label{display:grid;gap:4px;color:var(--muted);font-size:10px}.lighting-setup-row input{width:100%;min-width:0}.lighting-setup-print{margin:6px 0;padding-left:18px}.lighting-setup-print li{margin:4px 0}
+@media(max-width:850px){.lighting-setup-row{grid-template-columns:repeat(2,minmax(120px,1fr))}.lighting-setup-row button{grid-column:2}}
+
+.sound-setup-row{grid-template-columns:repeat(7,minmax(90px,1fr)) 34px}.sound-setup-row label{font-size:9px}@media(max-width:1050px){.sound-setup-row{grid-template-columns:repeat(3,minmax(110px,1fr)) 34px}}
+
+/* Project presets and equipment filters */
+.equipment-filter-bar,.preset-toolbar{display:flex;align-items:end;flex-wrap:wrap;gap:10px;margin:12px 0}
+.equipment-filter-bar label,.preset-toolbar label{display:grid;gap:4px;color:var(--muted);font-size:11px}
+.equipment-filter-bar select,.preset-toolbar select{min-width:150px;max-width:260px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)}
+.equipment-filter-bar>span{font-size:11px;color:var(--muted);padding:8px 0}
+.equipment-alerts .warning{margin:8px 0}
+.preset-row-actions{display:flex;gap:3px;align-items:center;flex-wrap:wrap}
+.preset-row-actions .btn{font-size:10px;padding:5px}
+.equipment-head,.equipment-row{grid-template-columns:1.1fr .75fr .55fr .8fr .75fr 1.15fr 1.15fr 1.2fr 105px;min-width:1200px}
+.shot-row{grid-template-columns:28px minmax(0,1fr) 105px}
+.lighting-setup-row{grid-template-columns:repeat(5,minmax(100px,1fr)) 105px}
+@media(max-width:850px){.lighting-setup-row{grid-template-columns:repeat(2,minmax(120px,1fr))}.lighting-setup-row .preset-row-actions button{grid-column:auto}}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Script Studio · Server Admin</title>
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Script Studio admin home"><span class="brand-mark">S</span><span>Script Studio <small data-i18n="adminServerAdmin">Server admin</small></span></a>
+    <div class="top-actions"><span class="local-badge"><i></i><span data-i18n="adminLocalOnly">Local only</span></span><label class="language-picker"><span data-i18n="adminLanguage">Language</span><select id="language"><option value="en">English</option><option value="nl">Nederlands</option></select></label><button class="btn quiet" id="logout" hidden data-i18n="adminLogout">Log out</button></div>
+  </header>
+  <main class="page">
+    <section class="intro"><p class="eyebrow" data-i18n="adminEyebrow">SELF-HOSTED COLLABORATION</p><h1 data-i18n="adminTitle">Manage your collaboration server</h1><p class="lede" data-i18n="adminIntro">Manage invitations, review access events, and set audit-log retention. Project content stays on your server.</p></section>
+    <section class="card login-card" id="login-card">
+      <div class="card-heading"><div><p class="eyebrow" data-i18n="adminAccess">ADMIN ACCESS</p><h2 data-i18n="adminConnect">Connect to this server</h2></div><span class="lock">⌑</span></div>
+      <p class="muted" data-i18n="adminTokenHelp">Paste the temporary token printed in the terminal where this admin service was started. It is kept in memory only.</p>
+      <form id="login-form" class="login-form"><label for="token" data-i18n="adminToken">Temporary admin token</label><div class="input-action"><input id="token" type="password" autocomplete="off" required><button class="btn primary" data-i18n="adminConnectButton">Connect</button></div></form>
+      <p class="feedback" id="login-feedback" role="status" aria-live="polite"></p>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="section-heading"><div><p class="eyebrow" data-i18n="adminOverview">OVERVIEW</p><h2 data-i18n="adminServerStatus">Server status</h2></div><button class="btn" id="refresh" data-i18n="adminRefresh">Refresh</button></div>
+      <div class="metrics">
+        <article class="metric"><span data-i18n="adminActiveInvites">Active invitations</span><b id="active-count">—</b></article>
+        <article class="metric"><span data-i18n="adminRevokedInvites">Revoked invitations</span><b id="revoked-count">—</b></article>
+        <article class="metric"><span data-i18n="adminDocuments">Stored documents</span><b id="document-count">—</b></article>
+        <article class="metric"><span data-i18n="adminLatestAudit">Latest audit event</span><b id="latest-audit">—</b></article>
+      </div>
+      <div class="columns">
+        <section class="card"><div class="card-heading"><div><p class="eyebrow" data-i18n="adminInvitations">INVITATIONS</p><h2 data-i18n="adminCreateInvite">Create an invitation</h2></div></div>
+          <form id="invite-form" class="form-grid">
+            <label><span data-i18n="adminProjectId">Project ID</span><input name="projectId" maxlength="80" pattern="[A-Za-z0-9_-]{1,80}" required></label>
+            <label><span data-i18n="adminDisplayName">Display name</span><input name="name" maxlength="100" required></label>
+            <label><span data-i18n="adminRole">Role</span><select name="role"><option value="editor" data-i18n="adminEditor">Editor</option><option value="owner" data-i18n="adminOwner">Owner</option><option value="commenter" data-i18n="adminCommenter">Commenter</option><option value="reader" data-i18n="adminReader">Reader</option></select></label>
+            <button class="btn primary" data-i18n="adminCreateButton">Create invitation</button>
+          </form>
+          <p class="feedback" id="invite-feedback" role="status" aria-live="polite"></p>
+          <div class="token-result" id="token-result" hidden><div><b data-i18n="adminTokenCreated">Invitation token created</b><p data-i18n="adminTokenOnce">Copy it now. The token is not stored in plaintext and cannot be shown again.</p><code id="created-token"></code></div><button class="btn" id="copy-token" data-i18n="adminCopyToken">Copy token</button></div>
+        </section>
+        <section class="card"><div class="card-heading"><div><p class="eyebrow" data-i18n="adminAudit">AUDIT</p><h2 data-i18n="adminRetention">Audit retention</h2></div></div>
+          <p class="muted" data-i18n="adminRetentionHint">Choose how many days of server access events to keep (1–3650 days).</p>
+          <form id="retention-form" class="retention-form"><label for="retention-days" data-i18n="adminRetentionDays">Retention (days)</label><div class="input-action"><input id="retention-days" type="number" min="1" max="3650" required><button class="btn primary" data-i18n="adminSave">Save</button></div></form>
+          <p class="feedback" id="retention-feedback" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+      <section class="card table-card"><div class="section-heading"><div><p class="eyebrow" data-i18n="adminInvitations">INVITATIONS</p><h2 data-i18n="adminAccessList">Access list</h2></div><div class="filter"><label for="project-filter" data-i18n="adminFilterProject">Filter by project ID</label><div class="input-action"><input id="project-filter" maxlength="80"><button class="btn" id="filter-invites" data-i18n="adminFilter">Filter</button></div></div></div><div class="table-scroll"><table><thead><tr><th data-i18n="adminPerson">Person</th><th data-i18n="adminProjectId">Project ID</th><th data-i18n="adminRole">Role</th><th data-i18n="adminCreated">Created</th><th data-i18n="adminStatus">Status</th><th></th></tr></thead><tbody id="invite-rows"></tbody></table></div><p class="empty-state" id="invite-empty" hidden data-i18n="adminNoInvites">No invitations found.</p></section>
+      <section class="card table-card"><div class="section-heading"><div><p class="eyebrow" data-i18n="adminAudit">AUDIT</p><h2 data-i18n="adminRecentEvents">Recent access events</h2></div><button class="btn" id="refresh-audit" data-i18n="adminRefresh">Refresh</button></div><div class="table-scroll"><table><thead><tr><th data-i18n="adminWhen">When</th><th data-i18n="adminEvent">Event</th><th data-i18n="adminProjectId">Project ID</th><th data-i18n="adminDocument">Document</th><th data-i18n="adminPerson">Person</th><th data-i18n="adminRole">Role</th><th data-i18n="adminResult">Result</th></tr></thead><tbody id="audit-rows"></tbody></table></div><p class="empty-state" id="audit-empty" hidden data-i18n="adminNoEvents">No audit events found.</p></section>
+    </section>
+    <p class="feedback page-feedback" id="page-feedback" role="status" aria-live="polite"></p>
+    <footer><span data-i18n="adminSecurityNote">This admin service listens only on 127.0.0.1. Keep its temporary token private.</span><code>127.0.0.1</code></footer>
+  </main>
+</body>
+</html>
