@@ -13,7 +13,7 @@ Obtain any future release from the official project source and check that it is 
 
 ## Windows and Linux
 
-Further development and validation of Windows and Linux releases is deferred. There is no official release; older local experiments are not approved installers. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
+An unsigned portable Windows x64 test package can be built, but has not yet been validated on Windows and is not an installer or official release. Extract the whole ZIP and open Takevera.exe; Windows may warn or block it. Linux release development is deferred. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
 
 ## Find help
 
@@ -131,3 +131,18 @@ Shared-folder sync is manual and asks for confirmation before writing data. When
 ## Known limits
 
 PDF import extracts selectable text; optional local OCR can recognize scanned pages on macOS. PDF layout and original pagination are not preserved. DOCX and FDX support common screenplay structures, but complex formatting and some revision data may be lost. Optional project sidecars can preserve additional metadata in Takevera DOCX/FDX exchanges. Celtx import is unavailable. The app has not been interactively validated on Windows or Linux. Local macOS installers use an ad-hoc signature without a Developer ID and are not notarized.
+
+
+## Individual equipment units and bookings
+
+Open **Production → Equipment list** and expand **Individual units and bookings** on an item. Add each physical unit with a name or identifier and optionally a unique serial number. Add bookings with start and end dates and times and a purpose. Warnings identify overlapping, incomplete or invalid bookings. Matching serial numbers identify the same unit even on different rows. Enter every booking: quantities and scene or shot links do not create them automatically. Booking times use this device's local time.
+
+## Check planning and exchange files
+
+The day overview displays recorded availability issues, timeline conflicts, and a reminder to check preparation time. The schedule suggestion allows preparation time before each scene. Check that all people and locations have been entered; absence of a warning is not confirmation. The script import preview summarises recognised content and limitations before replacement. Compare the result with the original. After FDX and DOCX export Takevera reads back and checks the written file; DOCX required document parts are also checked. Review the appearance in the destination application as well.
+
+### Backup status and restore
+
+Open a project and click its backup status at the top, or choose **Settings → Backup and restore**. The panel shows local restore points and the last full project folder export recorded on this device. A reminder appears if no full export is recorded, the last export was incomplete, or the last complete export is at least seven days old. Choose **Make a full project copy** and keep the whole folder on another drive or location. The app cannot check whether the copy still exists or includes later changes; check that you can import it. An export with missing images is shown as incomplete.
+
+Choose **Choose and restore an earlier version** to review local restore points and confirm the version. The current project is kept as a restore point first. Disconnect live collaboration before opening local restore points. **Import full project backup** imports a full folder as a new project; the original is not replaced. Local restore points share the project storage and do not protect against loss of the whole drive.

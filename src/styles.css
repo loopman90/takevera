@@ -237,3 +237,15 @@ body.high-contrast{--bg:#fff;--panel:#fff;--ink:#000;--muted:#333;--line:#555;--
 body.focus-mode .topbar{display:flex;min-height:48px;padding:8px 16px}body.focus-mode .topbar .crumb{display:none}body.focus-mode .topbar .top-actions{justify-content:flex-end}body.focus-mode .topbar .top-actions>*:not(#open-help):not(#focus){display:none!important}
 
 .help-launch{background:var(--green2);border-color:var(--line);color:var(--ink);font-weight:600}.help-launch:hover{background:var(--green2);border-color:var(--green)}
+
+/* Physical equipment units and their independently entered reservations. */
+.equipment-units { grid-column: 1 / -1; padding: 8px 0; }
+.equipment-units summary { cursor: pointer; font-weight: 600; }
+.equipment-unit { border: 1px solid var(--line); border-radius: 6px; padding: 12px; margin: 10px 0; }
+.equipment-unit-fields, .equipment-booking { display: flex; align-items: end; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.equipment-unit-fields label, .equipment-booking label { display: grid; gap: 4px; flex: 1 1 170px; min-width: 0; }
+.equipment-unit-fields input, .equipment-booking input { width: 100%; min-width: 0; }
+
+/* Backup status and restore entry points. */
+.backup-card-status { color: var(--muted); font-size: .85rem; }
+.backup-center-trigger { max-width: 260px; white-space: normal; }

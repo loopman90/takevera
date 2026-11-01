@@ -20,7 +20,8 @@
     "test:pdf": "electron tests/electron-pdf-smoke.cjs",
     "test:ocr": "electron tests/electron-ocr-smoke.cjs",
     "build:linux:experimental": "npm run build:renderer && node scripts/build-linux-experimental.cjs",
-    "build:windows:experimental": "npm run build:renderer && node scripts/build-windows-experimental.cjs"
+    "build:windows:experimental": "npm run build:renderer && node scripts/build-windows-experimental.cjs",
+    "build:windows:test": "npm run build:renderer && node scripts/build-windows.cjs"
   },
   "devDependencies": {
     "electron": "^45.2.1",

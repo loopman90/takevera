@@ -37,7 +37,24 @@
       group.count++;
       names.set(key, group);
     }
-    return { pending, zeroQuantity, duplicates: [...names.values()].filter(group => group.count > 1) };
+    const bookingIssues = [];
+    // A unit is one physical object. A repeated serial groups that same object across rows.
+    const groups = new Map();
+    for (const item of project?.equipment || []) for (const unit of Array.isArray(item.units) ? item.units : []) {
+      const serial = String(unit.serial || '').trim().toLocaleLowerCase();
+      const key = serial ? `serial:${serial}` : unit;
+      const name = [item.name, unit.label || unit.serial].filter(Boolean).join(' · ') || '—';
+      const bookings = groups.get(key) || [];
+      for (const booking of Array.isArray(unit.bookings) ? unit.bookings : []) {
+        const start = Date.parse(booking.start || ''), end = Date.parse(booking.end || '');
+        if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) bookingIssues.push({type:'incomplete',name});
+        else bookings.push({start,end,name});
+      }
+      groups.set(key,bookings);
+    }
+    for (const bookings of groups.values()) for (let i=0;i<bookings.length;i++) for (let j=i+1;j<bookings.length;j++)
+      if (bookings[i].start < bookings[j].end && bookings[j].start < bookings[i].end) bookingIssues.push({type:'overlap',name:bookings[i].name,start:Math.max(bookings[i].start,bookings[j].start),end:Math.min(bookings[i].end,bookings[j].end)});
+    return { pending, zeroQuantity, duplicates: [...names.values()].filter(group => group.count > 1), bookingIssues };
   }
 
   const presetFields = {

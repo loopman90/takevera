@@ -12,7 +12,7 @@ Download een toekomstige versie alleen via de officiële projectbron en controle
 
 ## Windows en Linux
 
-De verdere ontwikkeling en verificatie van Windows- en Linux-versies is uitgesteld. Er is nog geen officiële release; oudere lokale proefbestanden zijn geen goedgekeurde installatieversies. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
+Er is een ongetekend draagbaar Windows x64-testpakket beschikbaar om te bouwen, maar het is nog niet gevalideerd op Windows en is geen installatieprogramma of officiële release. Pak het hele ZIP-bestand uit en start Takevera.exe; Windows kan waarschuwen of de app blokkeren. De Linux-versie is uitgesteld. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
 
 ## Hulp vinden
 
@@ -130,3 +130,18 @@ Gedeelde-map-synchronisatie is handmatig en vraagt bevestiging voordat gegevens 
 ## Bekende grenzen
 
 PDF-import haalt tekst uit selecteerbare PDF's; op macOS kan optionele lokale OCR scans herkennen. PDF-opmaak en oorspronkelijke paginering blijven niet behouden. DOCX en FDX ondersteunen gangbare scriptstructuren, maar complexe opmaak en sommige revisiegegevens kunnen verloren gaan. Voor Takevera DOCX/FDX-uitwisseling kunnen optionele projectgegevensbestanden aanvullende metadata bewaren. Celtx-import is niet beschikbaar. De app is nog niet interactief gevalideerd op Windows of Linux. De lokale macOS-installers zijn ad-hoc ondertekend, maar hebben geen Developer ID-ondertekening of notarization.
+
+
+## Exemplaren en boekingen van apparatuur
+
+Open **Productie → Apparatuurlijst**. Voeg apparatuur toe en open **Exemplaren en boekingen**. Voeg voor elk fysiek exemplaar een naam of kenmerk toe, eventueel met een uniek serienummer. Voeg een boeking toe en vul de begin- en einddatum met tijd en het doel in. Voeg andere boekingen op dezelfde manier toe. De waarschuwing meldt overlappende boekingen en onvolledige of ongeldige tijden. Gelijke serienummers gelden als hetzelfde exemplaar, ook op verschillende regels. Controleer dat alle boekingen zijn ingevoerd: aantallen, scène- en shotkoppelingen maken niet automatisch boekingen aan. Boekingstijden zijn lokale tijden van dit apparaat.
+
+## Planning en bestandsuitwisseling controleren
+
+Het dagoverzicht toont beschikbaarheidsmeldingen, conflicten in de tijdlijn en een herinnering om voorbereidingstijd te controleren. In **Planningsvoorstel** kun je per scène voorbereidingstijd instellen. Loop ontbrekende personen en locaties zelf na; geen melding is geen bevestiging. Bij scriptimport toont het overzicht de herkende gegevens en beperkingen vóór vervanging. Controleer het resultaat met het origineel. Na FDX- en DOCX-export leest Takevera het bestand terug en controleert de geschreven inhoud; voor DOCX ook de benodigde documentdelen. Controleer daarnaast altijd de weergave in het doelprogramma.
+
+### Back-upstatus en herstel
+
+Open een project en klik bovenaan op de back-upstatus, of kies **Instellingen → Back-up en herstel**. Daar zie je of er lokale herstelpunten zijn en wanneer Takevera op dit apparaat voor het laatst een volledige projectmap exporteerde. Een herinnering verschijnt als nog geen volledige export bekend is, de laatste export onvolledig was, of de laatste volledige export minstens zeven dagen geleden is. Kies **Volledige projectkopie maken** en bewaar de hele map op een andere schijf of locatie. De app kan niet controleren of die kopie nog bestaat of latere wijzigingen bevat; controleer zelf of je haar kunt importeren. Een export waarbij afbeeldingen ontbreken wordt als onvolledig gemeld.
+
+Kies **Eerdere versie kiezen en herstellen** voor lokale herstelpunten: bevestig de gewenste versie. De huidige projectversie wordt eerst als herstelpunt bewaard. Verbreek live samenwerking voordat je lokale herstelpunten opent. Via **Volledige projectback-up importeren** maak je een nieuw project uit een volledige kopie; het oorspronkelijke project wordt niet vervangen. Lokale herstelpunten staan bij de projectbestanden en beschermen niet tegen verlies van de hele schijf.

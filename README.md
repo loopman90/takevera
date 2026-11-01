@@ -34,7 +34,7 @@ There are **no published releases yet**. Existing local development packages mus
 | Platform | Current state |
 | --- | --- |
 | macOS 13+ | Apple Silicon and Intel packages can be built. Local builds are ad-hoc signed, without Apple Developer ID signing or notarization. Intel hardware testing remains outstanding. |
-| Windows x64 | Development is deferred; the experimental portable archive is not a tested release. |
+| Windows x64 | An unsigned portable test archive can be built; Windows runtime and installer validation are still required. |
 | Linux x64 | Development is deferred; the experimental portable archive is not a tested release. |
 
 macOS development build: open the DMG and drag Takevera to Applications. Keep an independent backup before replacing an existing installation. There is no automatic update service.
@@ -62,7 +62,7 @@ npm test
 npm run build:renderer
 ```
 
-On macOS, `npm run test:smoke` and `npm run test:storage` run isolated Electron checks. Build a local macOS package with `npm run dist:mac` for the current architecture or `npm run dist:mac:x64` for Intel. Windows and Linux release builds are deferred; the existing experimental scripts are not release builders. A build succeeding on one machine does not verify runtime behaviour on another platform. macOS release signing and notarization require developer credentials and separate approval; never commit them. See the [technical reference](docs/TECHNICAL_REFERENCE.md).
+On macOS, `npm run test:smoke` and `npm run test:storage` run isolated Electron checks. Build a local macOS package with `npm run dist:mac` for the current architecture or `npm run dist:mac:x64` for Intel. Windows has an unsigned portable test builder and a manual Windows CI workflow; neither is an approved installer or release. Linux release builds are deferred. A build succeeding on one machine does not verify runtime behaviour on another platform. macOS release signing and notarization require developer credentials and separate approval; never commit them. See the [technical reference](docs/TECHNICAL_REFERENCE.md).
 
 ## Website and screenshots
 
@@ -83,3 +83,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), [CODE_OF_CON
 ## Licensing
 
 The owner selected the [MIT licence](LICENSE) and identified Astrid Roel as copyright holder. The owner confirmed 2026, the public contact details and rights to the provided logo and sample content. Third-party licence obligations still require review. Bundled font licences are in [src/fonts/](src/fonts/); see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for dependency notices and outstanding review.
+
+### Equipment bookings and planning
+
+Track individual physical equipment units and enter bookings with local start and end times in Production → Equipment list. Takevera flags overlapping or incomplete entries; scene assignments do not automatically create bookings. Review availability, preparation time and timeline warnings in the shoot day overview. Import previews describe recognised script content and limitations, and FDX/DOCX exports are read back and checked. Check formatting in the destination application. See the included user guides for details.
+
+### Windows x64 test package
+
+On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer or a published release. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The workflow must actually pass before Windows compatibility is claimed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.

@@ -51,9 +51,12 @@ try {
   fs.writeFileSync(path.join(app, 'package.json'), JSON.stringify({ name: info.name, productName: info.build.productName, version: info.version, main: info.main, license: info.license, dependencies: info.dependencies }, null, 2) + '\n');
   for (const name of ['LICENSE', 'THIRD_PARTY_NOTICES.md']) fs.copyFileSync(path.join(project, name), path.join(app, name));
   fs.copyFileSync(path.join(project, 'assets', 'takevera.ico'), path.join(bundle, 'takevera.ico'));
+  fs.copyFileSync(path.join(project, 'docs', 'WINDOWS_TEST_NL.txt'), path.join(bundle, 'LEESMIJ-WINDOWS.txt'));
   const archive = path.join(output, `Takevera-${info.version}-windows-x64-experimental.zip`);
   call('zip', ['-qr', archive, dirname], { cwd: temporary });
   call('unzip', ['-tq', archive], { stdio: 'ignore' });
-  console.log(`Experimental Windows archive created: ${archive}`);
+  const checksum = crypto.createHash('sha256').update(fs.readFileSync(archive)).digest('hex');
+  fs.writeFileSync(archive + '.sha256', `${checksum}  ${path.basename(archive)}\n`);
+  console.log(`Experimental Windows archive created: ${archive}\nSHA-256: ${checksum}`);
   console.log('No Windows runtime test, installer, executable rebranding, signature, or release approval.');
 } finally { fs.rmSync(temporary, { recursive: true, force: true }); }

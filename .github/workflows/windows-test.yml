@@ -1,0 +1,60 @@
+name: Windows test package
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-check:
+    name: Build and check Windows x64 test package
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with: {node-version: '22', cache: npm}
+      - run: npm ci
+      - run: npm audit --audit-level=moderate
+      - run: npm test
+      - run: npm run build:renderer
+      - run: npm run test:smoke
+        timeout-minutes: 5
+      - run: npm run test:storage
+        timeout-minutes: 5
+      - run: npm run test:security
+        timeout-minutes: 5
+      - run: npm run test:pdf
+        timeout-minutes: 5
+      - run: npm run build:windows:test
+      - name: Check packaged app starts on Windows
+        shell: pwsh
+        timeout-minutes: 3
+        run: |
+          $archive = Get-ChildItem dist/windows-test-*/*-windows-x64-test.zip | Select-Object -First 1
+          if (-not $archive) { throw 'Test archive was not created.' }
+          $destination = Join-Path $env:RUNNER_TEMP 'takevera-package-test'
+          Expand-Archive -LiteralPath $archive.FullName -DestinationPath $destination
+          $exe = Join-Path $destination 'Takevera-windows-x64/Takevera.exe'
+          $process = Start-Process -FilePath $exe -PassThru
+          try {
+            $deadline = (Get-Date).AddSeconds(45)
+            do {
+              Start-Sleep -Seconds 1
+              $process.Refresh()
+              if ($process.HasExited) { throw 'Packaged Takevera exited before opening a window.' }
+              if ($process.MainWindowHandle -ne 0) { break }
+            } while ((Get-Date) -lt $deadline)
+            if ($process.MainWindowHandle -eq 0) { throw 'Packaged Takevera did not open a window.' }
+            Write-Host 'Packaged Takevera opened a window.'
+          } finally {
+            if (-not $process.HasExited) { & taskkill.exe /PID $process.Id /T /F | Out-Null }
+          }
+      - name: Upload unsigned test archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Takevera-Windows-x64-test
+          path: |
+            dist/windows-test-*/Takevera-*-windows-x64-test.zip
+            dist/windows-test-*/Takevera-*-windows-x64-test.zip.sha256
+          if-no-files-found: error
+          retention-days: 7

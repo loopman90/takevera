@@ -17,7 +17,7 @@ Deze kaart vergelijkt de oorspronkelijke Takevera-specificatie met de huidige co
 | Onderdeel | Status | Huidige dekking |
 | --- | --- | --- |
 | Shotlist, shortlist en apparatuur | Aanwezig | Shottype/kader, beweging, lens, geluid en licht bieden suggestiemenu's; lenssuggesties nemen camera- en apparatuurnamen uit het project mee. Suggesties blijven vrije invoervelden. De apparatuurlijst koppelt items aan scènes/shots, bewaart eigenaar, aantal en status, en levert een apart rapport en call-sheetstatus. |
-| Apparatuurfilters en presets | Aanwezig met grenzen | Filter apparatuur op draaidag en status; meldingen tonen nog te regelen items, aantallen van nul en mogelijk dubbele namen. Herbruikbare shot-, licht- en apparatuurpresets worden in het project bewaard. Dubbele namen bewijzen geen gelijktijdige boeking; tijdgebonden uitgifte per exemplaar wordt nog niet bijgehouden. |
+| Apparatuurfilters en presets | Aanwezig met grenzen | Filter apparatuur op draaidag en status; meldingen tonen nog te regelen items, aantallen van nul en mogelijk dubbele namen. Herbruikbare shot-, licht- en apparatuurpresets worden in het project bewaard. Dubbele namen bewijzen geen gelijktijdige boeking. Exemplaren en zelf ingevoerde tijdgebonden boekingen tonen mogelijke overlap; volledigheid en beschikbaarheid moeten handmatig worden gecontroleerd. |
 | Licht- en geluidsplannen | Aanwezig | Gestructureerde opstellingen, referentieafbeeldingen en lichtmarkers op een achtergrondafbeelding; afzonderlijke rapporten en draaiboekuitvoer. |
 | Taken en begroting | Aanwezig | Verantwoordelijken, deadlines, statussen, valuta, ramingen en werkelijke bedragen. |
 | Scriptrevisies | Aanwezig voor benoemde rondes | Benoemde snapshots kunnen worden vergeleken en hersteld; FDX-revisiemarkeringen worden beperkt ingelezen en uitgevoerd. |
@@ -41,7 +41,7 @@ Deze kaart vergelijkt de oorspronkelijke Takevera-specificatie met de huidige co
 | Eigen projectformaat | Aanwezig | Gedocumenteerd JSON-formaat en schema; export/import van projectbundels en volledige projectmappen met afbeeldingshashes. |
 | Celtx | Niet geïmplementeerd | Er is geen ondersteunde, toegestane import-/exportmethode opgenomen; de app claimt geen Celtx-compatibiliteit en reverse-engineert geen beschermd formaat. |
 | macOS | Gebouwd | Apple Silicon- en Intel-DMG/ZIP-pakketten. De ARM64-versie is op deze Mac gebouwd; Intel is verpakt maar niet interactief op Intel-hardware gevalideerd. |
-| Windows en Linux | Niet gevalideerd | Architectuur en Electron Builder-doelen zijn voorbereid; bouw en runtime moeten op de doelbesturingssystemen worden gevalideerd. macOS-specifieke PDF-OCR werkt daar niet. |
+| Windows en Linux | Niet gevalideerd | Een ongetekend draagbaar Windows-testpakket en een Windows-controleworkflow zijn voorbereid; runtime en installatie moeten op het doelbesturingssysteem worden gevalideerd. macOS-specifieke PDF-OCR werkt daar niet. |
 | Ondertekening en updates | Beperkt | Lokale Mac-builds zijn ad-hoc ondertekend, zonder Developer ID en zonder notarization. Er is geen automatische updater; voor publieke distributie is een Apple Developer ID-certificaat en notarization nodig. Maak een back-up vóór een grote update. |
 
 ## Gebruiksgemak, privacy en eerste gebruik

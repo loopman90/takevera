@@ -14,7 +14,7 @@ An ad-hoc signature does not establish a developer identity; these packages are 
 
 Apple Silicon packages were built locally. Storage, IPC/navigation, PDF and image-only OCR tests passed against an instrumented copy of the packaged app using temporary data; secure credential storage was disabled for that test and remains to be verified separately. Intel packages were built; storage, IPC/security, text-PDF and image-only OCR checks also passed under Rosetta with credential storage disabled. Interactive validation on Intel hardware remains outstanding. The local output is not proof of reproducible builds or a completed independent security review.
 
-Windows and Linux release builds are deferred. Separate experimental portable archive scripts remain for future work; they are not release builders or validated installers. Linux container tests using `--no-sandbox` did not validate the Chromium sandbox or desktop installation. A Windows experiment was checked structurally but not run on Windows.
+Windows and Linux release builds remain deferred. An unsigned Windows x64 portable test archive can be generated on Windows or cross-built on macOS/Linux; it is not a validated installer or release. A manually triggered Windows workflow is prepared but must be run and inspected. Linux container tests using `--no-sandbox` did not validate the Chromium sandbox or desktop installation. A Windows experiment was checked structurally but not run on Windows.
 
 ## Before publication
 

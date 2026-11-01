@@ -1,0 +1,18 @@
+TAKEVERA — WINDOWS X64 TESTVERSIE
+
+Dit is een ongetekende testversie, geen officiële release of installatieprogramma.
+Pak het volledige ZIP-bestand uit in een eigen map. Open die map en start
+Takevera.exe. Laat de overige bestanden in dezelfde map staan.
+
+Windows kan een waarschuwing tonen of de app blokkeren. Gebruik alleen een kopie
+waarvan de herkomst betrouwbaar is en controleer de meegeleverde SHA-256-waarde.
+Deze waarde toont alleen aan dat het bestand gelijk is aan het bestand waarvan
+de waarde afkomstig is; hij bewijst niet wie het bestand heeft gemaakt.
+
+Projecten worden lokaal opgeslagen. Maak zelf regelmatig een volledige
+projectkopie op een andere locatie. Sla de testversie niet over bestaande
+Takevera-bestanden heen op. OCR van gescande PDF's is niet beschikbaar op
+Windows; PDF's met selecteerbare tekst kunnen wel worden geïmporteerd.
+
+Verwijder de uitgepakte programmamap om de testapp te verwijderen. Je projecten
+worden daardoor niet verwijderd. Dit pakket is nog niet op Windows gevalideerd.

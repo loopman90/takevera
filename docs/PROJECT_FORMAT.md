@@ -78,3 +78,6 @@ The matching image URL in `project` is `takevera-asset://asset-1`. Keep the mani
 ## Compatibility and migrations
 
 Local project JSON has no separate schema-version field. The interchange and folder wrappers each have their own `formatVersion`, currently `1`. The app can read older projects that use `storyTimeline`; when opening one, it uses that text to initialize `timeline`. The original legacy property may remain in the project. No automatic migration framework is promised for future versions; keep a full project backup before major upgrades. A format version the app does not support is rejected rather than guessed.
+
+
+Equipment items can optionally contain `units`, each with `id`, `label`, `serial`, and `bookings`. A booking has `id`, local `start` and `end` strings in `YYYY-MM-DDTHH:mm` form, and `purpose`. These optional fields preserve compatibility with existing equipment lists. Bookings are entered independently of scene assignments and quantities. Matching nonempty serials identify the same physical unit across equipment rows; overlapping complete valid intervals are flagged.
