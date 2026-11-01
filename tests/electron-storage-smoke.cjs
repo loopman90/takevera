@@ -36,8 +36,7 @@ app.once('browser-window-created', (_event, win) => {
         project=sample('film');project.id='smoketest';project.title='Original';
         project.productionPresets=[{id:'preset1',kind:'shot',name:'Interview',values:{framing:'Close-up'}}];
         section='production';prodTab='light';render();
-        const imageButton=document.querySelector('[data-add-production-image="light"]');check(imageButton,'Lighting image control missing');imageButton.click();
-        await new Promise(resolve=>setTimeout(resolve,100));
+        const imageButton=document.querySelector('[data-add-production-image="light"]');check(imageButton,'Lighting image control missing');await imageButton.onclick();
         const refs=[...(project.productionReferences?.light||[]),...project.scenes.flatMap(scene=>scene.productionReferences?.light||[]),...project.shots.flatMap(shot=>shot.productionReferences?.light||[])];
         check(refs.length===1&&refs[0].storageMode==='copied','Lighting image was not copied into the project');
         await flushPendingSave(true);
