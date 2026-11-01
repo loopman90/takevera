@@ -23,6 +23,7 @@ app.whenReady().then(async () => {
     if (win.webContents.isLoading()) await new Promise(resolve => win.webContents.once('did-finish-load', resolve));
     await new Promise(r => setTimeout(r, 800));
     const run = code => win.webContents.executeJavaScript(code);
+    await run(fs.readFileSync(path.join(root, 'tests', 'fixtures', 'sample-project.js'), 'utf8'));
     await run(`(async()=>{localStorage.setItem('scriptstudio-language','en');localStorage.setItem('scriptstudio-intro-seen','1');localStorage.setItem('scriptstudio-theme','light');lang='en';await loadRendererLocale();project=sample('film');await window.studio.saveProject(project);projects=await window.studio.listProjects();document.querySelector('#intro-modal')?.remove();section='home';render()})()`);
     const capture = async (name, code) => {
       await run(code);

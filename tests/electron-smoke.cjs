@@ -17,7 +17,8 @@ app.whenReady().then(async () => {
   try {
     await win.loadFile(path.join(__dirname, '..', 'src', 'index.html'));
     await new Promise(resolve => setTimeout(resolve, 300));
-    const result = await win.webContents.executeJavaScript(`(async () => {
+    await win.webContents.executeJavaScript(fs.readFileSync(path.join(__dirname, 'fixtures', 'sample-project.js'), 'utf8'));
+      const result = await win.webContents.executeJavaScript(`(async () => {
       const check = (condition, message) => { if (!condition) throw new Error(message); };
       localStorage.setItem('scriptstudio-intro-seen','1');
       project=sample('film');

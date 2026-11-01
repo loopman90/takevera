@@ -28,6 +28,9 @@ app.once('browser-window-created', (_event, win) => {
   win.webContents.once('did-finish-load', async () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 350));
+      const initial = await win.webContents.executeJavaScript(`(async()=>({projects:await window.studio.listProjects(),sampleButton:!!document.querySelector('#sample'),sampleFunction:typeof sample}))()`);
+      if (initial.projects.length || initial.sampleButton || initial.sampleFunction !== 'undefined') throw new Error('A fresh install must start without built-in example projects');
+      await win.webContents.executeJavaScript(fs.readFileSync(path.join(__dirname, 'fixtures', 'sample-project.js'), 'utf8'));
       const created = await win.webContents.executeJavaScript(`(async () => {
         const check=(value,message)=>{if(!value)throw new Error(message)};
         project=sample('film');project.id='smoketest';project.title='Original';

@@ -24,4 +24,5 @@ jobs:
       - run: npm run build:renderer
       - run: npm run dist:mac
       - name: State distribution limitations
-        run: echo 'Development build only: no Developer ID signature, notarization, release, or upload.'
+        run: |
+          echo 'Development build only: no Developer ID signature, notarization, release, or upload.'

@@ -48,7 +48,7 @@ Deze kaart vergelijkt de oorspronkelijke Takevera-specificatie met de huidige co
 
 | Onderdeel | Status | Huidige dekking |
 | --- | --- | --- |
-| Beginnershulp | Aanwezig met grenzen | Overslaanbare introductie, projectwizard, woordenlijst, bewerkbare voorbeeldprojecten en uitschakelbare schrijftips. Er is geen aparte eenvoudige modus die de werkruimte herconfigureert. |
+| Beginnershulp | Aanwezig met grenzen | Overslaanbare introductie, projectwizard, woordenlijst en uitschakelbare schrijftips. Er is geen aparte eenvoudige modus die de werkruimte herconfigureert. |
 | Toegankelijkheid en weergave | Aanwezig met grenzen | Toetsenbordbediening, zichtbare labels/ARIA-namen, tekstgroottes, hoog contrast, licht/donker en verstelbare navigatiezijbalk. De volledige app is niet met schermlezers op ieder platform gevalideerd. |
 | Lokale opslag en herstel | Aanwezig | Lokale projectbestanden, automatische en handmatige back-ups, herstel na beschadiging, verplaatsen van opslag, projectexport en definitieve verwijdering via projectbeheer. |
 | Afbeeldingsrechten | Aanwezig | Referenties kunnen bijschrift, bron, maker, datum, gebruiksrechten en notities opslaan; de gebruiker blijft verantwoordelijk voor toegestaan gebruik. |

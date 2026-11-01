@@ -66,7 +66,6 @@
   "pages": "pages",
   "words": "words",
   "savedIn": "Saved locally in Documents / Takevera",
-  "example": "Load sample project",
   "status": "Draft",
   "crew": "Cast & crew",
   "contacts": "Production contacts",
@@ -274,7 +273,7 @@
   "duplicateScene": "Duplicate scene",
   "gettingStarted": "Getting started",
   "introTitle": "From idea to production book",
-  "introBody": "Takevera stores your projects locally. Start with a blank project or open the sample.",
+  "introBody": "Takevera stores your projects locally. Start with a blank project.",
   "introStepOne": "Create a project and choose its production type and script language.",
   "introStepTwo": "Write scenes; extra script blocks adapt to your production.",
   "introStepThree": "Use Production for shoot days, call sheets, shots, and tasks.",
@@ -616,36 +615,8 @@
   "scriptPageRightMargin": "Page right margin (in)",
   "scriptPageTopMargin": "Page top margin (in)",
   "scriptPageBottomMargin": "Page bottom margin (in)",
-  "chooseSample": "Choose a sample project",
   "glossaryTitle": "Glossary",
   "glossaryHint": "Short explanations of common script and production terms.",
-  "sampleTypes": [
-    {
-      "id": "film",
-      "title": "Film and series",
-      "description": "Scene headings, action, dialogue, and shoot-day planning."
-    },
-    {
-      "id": "theatre",
-      "title": "Theatre",
-      "description": "Acts, scenes, stage directions, and dialogue."
-    },
-    {
-      "id": "podcast",
-      "title": "Podcast and audio drama",
-      "description": "Speakers, sound effects, music, and cues."
-    },
-    {
-      "id": "commercial",
-      "title": "Commercial",
-      "description": "Short scenes with visuals, voice-over, and timing."
-    },
-    {
-      "id": "documentary",
-      "title": "Documentary",
-      "description": "Interview scenes, observations, and location planning."
-    }
-  ],
   "glossaryTerms": [
     {
       "term": "Scene heading",

@@ -25,7 +25,7 @@ Bij de eerste start gebruikt Takevera de systeemtaal als deze beschikbaar is; an
 1. Kies **Nieuw project** en vul een titel in.
 2. Kies het productietype en de taal van het script. De interfacetaal stel je apart in bij **Instellingen**. Die taal wordt ook gebruikt voor veelvoorkomende foutmeldingen bij bestanden, opslag en verbindingen. Daar kun je de schrijftip in de editor verbergen of opnieuw tonen en de startgids opnieuw openen. Sleep de scheidingslijn naast de navigatiekolom om die breder of smaller te maken; de breedte wordt onthouden. Je kunt de scheidingslijn ook focussen en met de pijltjestoetsen, Home en End bedienen.
 3. Voeg eventueel een logline, synopsis en makers toe.
-4. Open een voorbeeldproject via **Voorbeeld** om te zien hoe een productie is ingericht. De voorbeelden bevatten taken en apparatuur; film-, reclame- en documentaireprojecten tonen ook shots en storyboardkaarten.
+4. Een nieuwe installatie begint zonder projecten. Maak zelf een project of importeer een bestaand project.
 
 De startpagina toont je projecten, het aantal scènes, de taakvoortgang en wanneer een project voor het laatst is gewijzigd. Gebruik de zoekbalk om projecten te vinden.
 

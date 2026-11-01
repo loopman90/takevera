@@ -9,7 +9,7 @@ A local-first desktop workspace for writing scripts and preparing production boo
 ## Start here
 
 1. Build or install an appropriate development package for your system; see [platforms and installation](#platforms-and-installation).
-2. Open Takevera, choose **New project**, or open a sample project to practise.
+2. Open Takevera and choose **New project**. A new installation starts without projects.
 3. Open **Script** and add a scene. Changes are saved locally.
 4. Open **Production** for shoot days, shot lists, equipment, lighting and call sheets.
 5. Select **? Help me** in the app to search instructions, learn about the current screen or open the full guide offline.
@@ -23,7 +23,7 @@ Read the [English beginner’s guide](docs/USER_GUIDE_EN.md) or [Nederlandse beg
 - **Visual planning:** moodboards, storyboards, lighting and sound references, plus fixture markers on a reference image.
 - **Local-first:** local project files, automatic saves, backups and an independent full-project export.
 - **Optional integrations:** an OpenAI-compatible endpoint or separately installed local model server, and manually configured shared-folder or self-hosted realtime collaboration. Selected AI context is sent only after review and confirmation.
-- **Guidance:** English and Dutch UI, example projects, a glossary and offline help.
+- **Guidance:** English and Dutch UI, a glossary and offline help.
 
 These features are implemented in the development app; not every workflow has been independently validated on every platform. [Coverage and known limits](docs/SPEC_COVERAGE.md) and [technical reference](docs/TECHNICAL_REFERENCE.md) describe details and format restrictions.
 

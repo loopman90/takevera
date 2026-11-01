@@ -34,7 +34,7 @@ Takevera uses the system language on first launch when supported, otherwise Engl
 1. Choose **New project** and enter a title.
 2. Choose the production type and script language. The interface language is selected separately in **Settings**. It also controls common file, storage, and connection error messages. You can hide or show the editor’s writing tip and reopen the introduction there. Drag the divider beside the navigation sidebar to resize it; Takevera remembers the width. You can also focus the divider and use the arrow, Home, and End keys.
 3. Add a logline, synopsis, and creators if useful.
-4. Choose **Example** on the home screen to explore a sample project first. Samples include tasks and equipment; film, commercial, and documentary projects also show shots and storyboard cards.
+4. A new installation starts without projects. Create a project or import an existing one.
 
 The home screen shows your projects, scene counts, task progress, and last-changed time. Use search to find a project.
 

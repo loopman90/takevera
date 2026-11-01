@@ -54,7 +54,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: {fetch-depth: 0, persist-credentials: false}
       - name: Install pinned Gitleaks
-        run: go install github.com/gitleaks/gitleaks/v8@v8.24.3
+        run: go install github.com/zricethezav/gitleaks/v8@v8.24.3
       - name: Scan history and working tree without publishing findings
         shell: bash
         run: |

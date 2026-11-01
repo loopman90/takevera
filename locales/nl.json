@@ -66,7 +66,6 @@
   "pages": "pagina’s",
   "words": "woorden",
   "savedIn": "Lokaal opgeslagen in Documenten / Takevera",
-  "example": "Voorbeeldproject laden",
   "status": "Concept",
   "crew": "Cast & crew",
   "contacts": "Productiecontacten",
@@ -274,7 +273,7 @@
   "duplicateScene": "Scène dupliceren",
   "gettingStarted": "Snel op weg",
   "introTitle": "Van idee naar productiedraaiboek",
-  "introBody": "Takevera bewaart je projecten lokaal. Je kunt beginnen met een leeg project of het voorbeeld openen.",
+  "introBody": "Takevera bewaart je projecten lokaal. Begin met een leeg project.",
   "introStepOne": "Maak een project aan en kies het productietype en de scripttaal.",
   "introStepTwo": "Schrijf scènes; extra scriptblokken zijn aanpasbaar per productie.",
   "introStepThree": "Gebruik Productie voor draaidagen, call sheets, shots en taken.",
@@ -616,36 +615,8 @@
   "scriptPageRightMargin": "Paginamarge rechts (in)",
   "scriptPageTopMargin": "Paginamarge boven (in)",
   "scriptPageBottomMargin": "Paginamarge onder (in)",
-  "chooseSample": "Kies een voorbeeldproject",
   "glossaryTitle": "Begrippenlijst",
   "glossaryHint": "Korte uitleg van veelgebruikte script- en productietermen.",
-  "sampleTypes": [
-    {
-      "id": "film",
-      "title": "Film en serie",
-      "description": "Scènekoppen, actie, dialoog en draaidagplanning."
-    },
-    {
-      "id": "theatre",
-      "title": "Theater",
-      "description": "Bedrijven, scènes, regieaanwijzingen en dialogen."
-    },
-    {
-      "id": "podcast",
-      "title": "Podcast en hoorspel",
-      "description": "Sprekers, geluidseffecten, muziek en cues."
-    },
-    {
-      "id": "commercial",
-      "title": "Commercial",
-      "description": "Korte scènes met beeld, voice-over en timing."
-    },
-    {
-      "id": "documentary",
-      "title": "Documentaire",
-      "description": "Interviewscènes, observaties en locatieplanning."
-    }
-  ],
   "glossaryTerms": [
     {
       "term": "Scènekop",

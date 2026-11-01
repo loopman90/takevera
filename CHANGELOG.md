@@ -8,11 +8,13 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 - Local-first desktop workspace for scripts, project details and production planning.
 - Shot, equipment, light and sound plans; visual references and print/PDF output.
-- English and Dutch interface, sample projects and in-app guidance.
+- English and Dutch interface and in-app guidance.
 - Optional configurable AI and self-hosted collaboration.
 - Local-only static project website and publication preparation.
 
 ### Changed
+
+- New installations start without built-in example projects; existing user projects are preserved.
 
 - Focus release preparation on macOS and replace the previous build tool; Windows and Linux release builds are deferred.
 
