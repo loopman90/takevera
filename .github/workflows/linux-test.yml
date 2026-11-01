@@ -1,0 +1,62 @@
+name: Linux test package
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-check:
+    name: Build and check Linux x64 test package
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with: {node-version: '22', cache: npm}
+      - name: Install virtual display helpers
+        run: sudo apt-get update && sudo apt-get install -y xvfb xdotool
+      - run: npm ci
+      - run: npm audit --audit-level=moderate
+      - run: npm test
+      - run: npm run build:renderer
+      - name: Renderer, storage, IPC and PDF checks with virtual display
+        run: |
+          xvfb-run -a ./node_modules/.bin/electron --no-sandbox tests/electron-smoke.cjs
+          xvfb-run -a ./node_modules/.bin/electron --no-sandbox tests/electron-storage-smoke.cjs
+          xvfb-run -a ./node_modules/.bin/electron --no-sandbox tests/electron-security-smoke.cjs
+          xvfb-run -a ./node_modules/.bin/electron --no-sandbox tests/electron-pdf-smoke.cjs
+        timeout-minutes: 10
+      - run: npm run build:linux:experimental
+      - name: Start packaged app with Chromium sandbox
+        timeout-minutes: 5
+        run: |
+          set -euo pipefail
+          archive=$(find dist/experimental-linux-* -name '*linux-x64-experimental.tar.gz' -type f -print -quit)
+          test -n "$archive"
+          mkdir -p "$RUNNER_TEMP/takevera-linux-test" "$RUNNER_TEMP/takevera-test-home"
+          tar -xzf "$archive" -C "$RUNNER_TEMP/takevera-linux-test"
+          app="$RUNNER_TEMP/takevera-linux-test/Takevera-linux-x64"
+          sudo chown root:root "$app/chrome-sandbox"
+          sudo chmod 4755 "$app/chrome-sandbox"
+          HOME="$RUNNER_TEMP/takevera-test-home" xvfb-run -a sh -c '
+            "$1/takevera" > "$2/takevera.log" 2>&1 &
+            pid=$!
+            trap "kill $pid 2>/dev/null || true; wait $pid 2>/dev/null || true" EXIT
+            for i in $(seq 1 30); do
+              sleep 1
+              if ! kill -0 "$pid" 2>/dev/null; then cat "$2/takevera.log"; exit 1; fi
+              if command -v xdotool >/dev/null && xdotool search --onlyvisible --name Takevera >/dev/null 2>&1; then exit 0; fi
+            done
+            cat "$2/takevera.log"
+            echo "No Takevera window found" >&2
+            exit 1
+          ' sh "$app" "$RUNNER_TEMP"
+      - name: Upload Linux test archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Takevera-Linux-x64-test
+          path: |
+            dist/experimental-linux-*/Takevera-*-linux-x64-experimental.tar.gz
+            dist/experimental-linux-*/Takevera-*-linux-x64-experimental.tar.gz.sha256
+          if-no-files-found: error
+          retention-days: 7

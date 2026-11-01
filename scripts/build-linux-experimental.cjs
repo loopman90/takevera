@@ -1,6 +1,7 @@
 /* Local development experiment. This portable archive is not a release or AppImage. */
 const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
+const crypto = require('node:crypto');
 const os = require('node:os');
 const path = require('node:path');
 
@@ -36,9 +37,12 @@ try {
   fs.writeFileSync(path.join(app, 'package.json'), JSON.stringify({ name: info.name, productName: info.build.productName, version: info.version, main: info.main, license: info.license, dependencies: info.dependencies }, null, 2) + '\n');
   for (const name of ['LICENSE', 'THIRD_PARTY_NOTICES.md']) fs.copyFileSync(path.join(project, name), path.join(app, name));
   fs.copyFileSync(path.join(project, 'src', 'assets', 'takevera-logo.png'), path.join(bundle, 'takevera.png'));
+  fs.copyFileSync(path.join(project, 'docs', 'LINUX_TEST_NL.txt'), path.join(bundle, 'LEESMIJ-LINUX.txt'));
   const archive = path.join(output, `Takevera-${info.version}-linux-${process.arch}-experimental.tar.gz`);
   call('tar', ['-czf', archive, '-C', temporary, dirname]);
   call('tar', ['-tzf', archive], { stdio: 'ignore' });
+  const digest=crypto.createHash('sha256').update(fs.readFileSync(archive)).digest('hex');
+  fs.writeFileSync(archive+'.sha256', `${digest}  ${path.basename(archive)}\n`);
   console.log(`Experimental portable archive created: ${archive}`);
   console.log('Not an AppImage, installer, tested release or replacement for the full dependency audit.');
 } finally {

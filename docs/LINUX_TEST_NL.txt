@@ -1,0 +1,21 @@
+TAKEVERA — LINUX X64 TESTVERSIE
+
+Dit is een draagbare testversie; er is geen installatieprogramma of AppImage.
+Pak het hele tar.gz-bestand uit en start het bestand 'takevera' in de map.
+Bijvoorbeeld in een terminal, vanuit de uitgepakte map:
+
+  ./takevera
+
+Je hebt een 64-bits Linux-systeem, een grafische omgeving en de gebruikelijke
+Electron/Chromium-systeembibliotheken nodig. De instellingen van je distributie
+moeten de Chromium-sandbox toestaan. Wanneer starten mislukt, controleer dan
+het terminalbericht en de sandbox-instellingen van je distributie.
+
+Projecten worden lokaal bewaard. Maak regelmatig een volledige projectkopie
+op een andere locatie. OCR voor gescande PDF's is op Linux niet beschikbaar;
+PDF's met selecteerbare tekst kunnen wel worden geïmporteerd. Het veilig
+opslaan van API-sleutels vereist een ondersteunde Linux-sleutelopslag.
+
+Verwijder de uitgepakte programmamap om de app te verwijderen. De projectdata
+worden daardoor niet verwijderd. Deze testversie is niet interactief op alle
+Linux-distributies gevalideerd.
