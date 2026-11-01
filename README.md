@@ -4,7 +4,7 @@ A local-first desktop workspace for writing scripts and preparing production boo
 
 ![Takevera script editor with a fictional example project](website/assets/screenshots/script.png)
 
-**Status:** version 0.1.0 is a development build. No official GitHub release or project website has been published. The owner selected the MIT licence and confirmed the copyright notice.
+**Status:** version 0.1.1 beta is a development release. Download it from [GitHub Releases](https://github.com/loopman90/takevera/releases/tag/v0.1.1-beta.1) or visit the [project website](https://loopman90.github.io/takevera/). The project uses the MIT licence.
 
 ## Start here
 
@@ -29,27 +29,27 @@ These features are implemented in the development app; not every workflow has be
 
 ## Platforms and installation
 
-There are **no published releases yet**. Existing local development packages must not be treated as verified official downloads.
+The [0.1.1 beta release](https://github.com/loopman90/takevera/releases/tag/v0.1.1-beta.1) provides macOS DMGs and portable Windows and Linux test packages. Verify downloads using the included SHA-256 checksums.
 
 | Platform | Current state |
 | --- | --- |
 | macOS 13+ | Apple Silicon and Intel packages can be built. Local builds are ad-hoc signed, without Apple Developer ID signing or notarization. Intel hardware testing remains outstanding. |
-| Windows x64 | An unsigned portable test archive can be built; Windows runtime and installer validation are still required. |
+| Windows x64 | An unsigned portable test archive passed an automated Windows startup check. It is not an installer; interactive testing remains needed. |
 | Linux x64 | A portable test archive is available. Installation and interactive use across distributions need further validation. |
 
 macOS development build: open the DMG and drag Takevera to Applications. Keep an independent backup before replacing an existing installation. There is no automatic update service.
 
 ### Opening a macOS build
 
-The planned open-source macOS build does not require a paid Apple Developer account. An ad-hoc signature does not establish the developer’s identity, and the build is not notarized by Apple. macOS may block it on first launch. There is no official release yet; do not treat experimental builds as approved downloads.
+The open-source macOS build does not require a paid Apple Developer account. An ad-hoc signature does not establish the developer’s identity, and the build is not notarized by Apple. macOS may block it on first launch. The current release is a beta and requires further testing.
 
-If a future release is obtained from the official project source and you have independently checked that it is the expected, unmodified file, first try to open the app. If macOS blocks it, **System Settings → Privacy & Security** may offer **Open Anyway** for that app. Follow [Apple’s instructions and security guidance](https://support.apple.com/en-us/102445). Do not override a warning that identifies malware or a damaged or modified app. Availability and wording vary by macOS version and device management.
+If a release is obtained from the official project source and you have independently checked that it is the expected, unmodified file, first try to open the app. If macOS blocks it, **System Settings → Privacy & Security** may offer **Open Anyway** for that app. Follow [Apple’s instructions and security guidance](https://support.apple.com/en-us/102445). Do not override a warning that identifies malware or a damaged or modified app. Availability and wording vary by macOS version and device management.
 
 ## Configuration and privacy
 
 Projects are stored under the user's Documents/Takevera directory by default; an existing legacy ScriptStudio folder may continue to be used. Use **Settings** to change the folder, interface language, appearance and optional services. Do not commit project data or API keys. The app supports PNG, JPEG and WebP references; linked originals need to remain available.
 
-AI setup offers Claude, Gemini and Grok with preset endpoints, plus custom chat-completions endpoints and local servers. Enter a model available to your account and an API key when required. An external provider receives the reviewed project context after confirmation and may charge for usage. A local server must be installed separately. Linux credential storage needs a supported secure secret store. See the [guides](docs/USER_GUIDE_EN.md) for steps and limitations.
+AI setup offers Claude, Gemini and Grok with preset endpoints, plus custom chat-completions endpoints and local servers. Live requests to the new provider integrations have not yet been tested with real API keys. Enter a model available to your account and an API key when required. An external provider receives the reviewed project context after confirmation and may charge for usage. A local server must be installed separately. Linux credential storage needs a supported secure secret store. See the [guides](docs/USER_GUIDE_EN.md) for steps and limitations.
 
 ## Development and builds
 
@@ -62,11 +62,11 @@ npm test
 npm run build:renderer
 ```
 
-On macOS, `npm run test:smoke` and `npm run test:storage` run isolated Electron checks. Build a local macOS package with `npm run dist:mac` for the current architecture or `npm run dist:mac:x64` for Intel. Windows has an unsigned portable test builder and a manual Windows CI workflow; neither is an approved installer or release. Linux x64 has a portable test builder and a manual Linux CI workflow; it is not an installer or AppImage. A build succeeding on one machine does not verify runtime behaviour on another platform. macOS release signing and notarization require developer credentials and separate approval; never commit them. See the [technical reference](docs/TECHNICAL_REFERENCE.md).
+On macOS, `npm run test:smoke` and `npm run test:storage` run isolated Electron checks. Build a local macOS package with `npm run dist:mac` for the current architecture or `npm run dist:mac:x64` for Intel. Windows has an unsigned portable test builder and a manual Windows CI workflow; the public ZIP is not an installer. Linux x64 has a portable test builder and a manual Linux CI workflow; it is not an installer or AppImage. A build succeeding on one machine does not verify runtime behaviour on another platform. macOS release signing and notarization require developer credentials and separate approval; never commit them. See the [technical reference](docs/TECHNICAL_REFERENCE.md).
 
 ## Website and screenshots
 
-A static, English-first GitHub Pages site is prepared locally under [website/](website/). It uses genuine app screenshots from a fictional isolated demo. No remote repository, release URL or Pages deployment is configured.
+The [English-first GitHub Pages site](https://loopman90.github.io/takevera/) is maintained under [website/](website/). It uses genuine app screenshots from a fictional isolated demo.
 
 ```sh
 node website/build.mjs
@@ -90,7 +90,7 @@ Track individual physical equipment units and enter bookings with local start an
 
 ### Windows x64 test package
 
-On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer or a published release. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The workflow must actually pass before Windows compatibility is claimed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.
+On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The 0.1.1 package passed its automated startup check; further interactive testing is needed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.
 
 ### Linux x64 test package
 

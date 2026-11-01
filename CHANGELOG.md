@@ -4,7 +4,22 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
-- Dedicated settings for Claude, Gemini and Grok and version 0.1.1 packages are in preparation; they are not yet published.
+- No changes recorded yet.
+
+## 0.1.1-beta.1 — 2026-11-01
+
+### Added
+
+- Dedicated settings for Claude, Gemini and Grok and updated in-app and user guides.
+
+### Security
+
+- Require a new key or removal of the saved key when changing AI provider or endpoint.
+
+### Known limitations
+
+- Live requests to the new AI providers have not yet been tested with real API keys.
+- Windows and Linux downloads are portable test packages; further interactive testing is needed. macOS packages are ad-hoc signed and not notarized.
 
 ## 0.1.0-beta.1 — 2026-11-01
 
@@ -41,4 +56,4 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 - macOS development packages are not notarized; Windows development packages are unsigned.
 - Some file conversions omit formatting and metadata; see the user guide.
 
-Source package version: **0.1.0** for the published beta; **0.1.1** is in preparation.
+Source package version: **0.1.1** for the latest beta.
