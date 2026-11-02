@@ -4,7 +4,7 @@ A local-first desktop workspace for writing scripts and preparing production boo
 
 ![Takevera script editor with a fictional example project](website/assets/screenshots/script.png)
 
-**Status:** version 0.1.3 beta is a development release. Download it from [GitHub Releases](https://github.com/loopman90/takevera/releases/tag/v0.1.3-beta.1) or visit the [project website](https://loopman90.github.io/takevera/). The project uses the MIT licence.
+**Status:** the source is being prepared for version 0.1.4 beta. The latest published development release is [0.1.3 beta](https://github.com/loopman90/takevera/releases/tag/v0.1.3-beta.1); see also the [project website](https://loopman90.github.io/takevera/). The project uses the MIT licence.
 
 ## Start here
 

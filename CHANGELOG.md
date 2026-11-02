@@ -4,6 +4,28 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
+### Added
+
+- Project overview with suggested next steps, configurable navigation, scene preparation summaries, shoot-day overview, and production closeout checks.
+- Story cards with structure templates, storyline and character filters, timeline and outline export.
+- Availability windows, visual schedules, scene transfer with impact review, and explicit cast-to-character planning links.
+- Call-sheet issue history and change detection, recipient labels and selectable sections; distribution status is recorded manually.
+- Shared breakdown items, source links, production CSV and printable cast and category reports.
+- Local collaboration invitation bundles, bounded multi-scene recovery, full-screen and workspace visibility controls, and expanded offline help.
+
+### Changed
+
+- Group navigation by production phase and simplify script tools and shot details without removing their controls.
+- Preserve scene references in schedules when scenes are inserted, reordered or removed; flag missing or stale entries for review.
+- Preserve existing scene and day locks when applying collaboration permissions.
+- Refresh website screenshots using a fictional, isolated project.
+
+### Known limitations
+
+- macOS packages are ad-hoc signed and not notarized. Windows and Linux cross-built archives are unsigned portable test packages, not installers; they require interactive platform testing.
+- Call-sheet issue data are recorded, but the issued PDF must be saved separately. Realtime collaboration still requires a self-hosted server.
+- Previously incorrect schedule links cannot be identified automatically. Review older projects, and back up before updating.
+
 ## 0.1.3-beta.1 — 2026-11-02
 
 - Add a scene-linked story board, alternative scene and primary-dialogue versions, selective restoration from revisions and local backups, an offline feedback round, scene read-aloud with local system voices, and script checks. These features do not lock production pages.

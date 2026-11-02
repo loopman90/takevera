@@ -110,7 +110,7 @@ Open **Taken** voor verantwoordelijken, deadlines en status. De statussen blijve
 
 **Scriptgeschiedenis** toont benoemde revisies en beschikbare lokale herstelpunten. Kies een scène en een punt om een enkel tekstveld te bekijken en terug te zetten; vooraf wordt een herstelpunt gemaakt. Dit is geen volledige geschiedenis van iedere toetsaanslag. Productiepagina’s met vaste paginanummers, A-pagina’s en vervallen scènes worden nog niet ondersteund; afdrukken wordt opnieuw gepagineerd.
 
-Bewaar een scriptrevisie met datum, versienummer en notitie. Vergelijk een revisie met de huidige tekst of kies twee opgeslagen revisies om onderling te vergelijken. Je kunt een revisie herstellen. Bij realtime samenwerking registreert de activiteitenlijst wie een wijziging opsloeg, wanneer dat gebeurde, welke scène veranderde en welke projectruimte werd bijgewerkt. De lijst bewaart maximaal 1.000 gebeurtenissen en meldt wanneer oudere items zijn verwijderd. Bij een wijziging aan één scène bewaart de lijst, zolang de scènevolgorde en het aantal scènes gelijk blijven, een begrensd herstelpunt voor de script-/revisievelden. Kies **Herstel script van vóór deze wijziging** om die velden terug te zetten; reacties en afbeeldingen blijven behouden. Er worden maximaal 20 herstelpunten van samen maximaal 1 MiB bewaard, met maximaal 128 KiB per punt. Te grote wijzigingen, scèneverplaatsingen en wijzigingen aan meerdere scènes blijven alleen als activiteit zichtbaar; maak daarvoor een benoemde revisie. Als een wijziging van een andere samenwerker binnenkomt, wordt de sessiegeschiedenis voor undo/redo met een melding opnieuw gestart om te voorkomen dat een oude momentopname nieuwere inhoud overschrijft. Revisiepagina's kunnen een kleur krijgen; zet achtergrondafbeeldingen aan in het afdrukvenster om die kleur in PDF te behouden.
+Bewaar een scriptrevisie met datum, versienummer en notitie. Vergelijk een revisie met de huidige tekst of kies twee opgeslagen revisies om onderling te vergelijken. Je kunt een revisie herstellen. Bij realtime samenwerking registreert de activiteitenlijst wie een wijziging opsloeg, wanneer dat gebeurde, welke scène veranderde en welke projectruimte werd bijgewerkt. De lijst bewaart maximaal 1.000 gebeurtenissen en meldt wanneer oudere items zijn verwijderd. Bij wijzigingen aan één of meerdere scènes bewaart de lijst, zolang de scènevolgorde en het aantal scènes gelijk blijven, een begrensd herstelpunt voor de script-/revisievelden. Kies **Herstel script van vóór deze wijziging** om die velden terug te zetten; reacties en afbeeldingen blijven behouden. Er worden maximaal 20 herstelpunten van samen maximaal 1 MiB bewaard, met maximaal 128 KiB per punt. Te grote wijzigingen en scèneverplaatsingen blijven alleen als activiteit zichtbaar; maak daarvoor een benoemde revisie. Herstellen is alleen mogelijk als alle betrokken scènes nog overeenkomen met de toestand direct na die wijziging en ontgrendeld zijn; de app maakt eerst een lokaal herstelpunt. Als een wijziging van een andere samenwerker binnenkomt, wordt de sessiegeschiedenis voor undo/redo met een melding opnieuw gestart om te voorkomen dat een oude momentopname nieuwere inhoud overschrijft. Revisiepagina's kunnen een kleur krijgen; zet achtergrondafbeeldingen aan in het afdrukvenster om die kleur in PDF te behouden.
 
 Vanuit **Productie** kun je het volledige draaiboek, de actieve draaidag, call sheet, shotlist, lichtplan, geluidsplan, cast-/crewlijst en apparatuur afdrukken of als PDF bewaren. Pas zo nodig het projectsjabloon aan en gebruik **Beheer exportsjablonen** om eigen sjablonen te bewaren. Voeg daar ook eigen tekstonderdelen aan het draaiboek toe; je kunt ze per sjabloon opnemen of verbergen en ze in de volgorde verplaatsen. Controleer vóór de definitieve export welke onderdelen en contactgegevens worden opgenomen. Voor persoonlijke telefoonnummers moeten zowel de exportschakelaar als de toestemming per persoon aanstaan.
 
@@ -183,3 +183,89 @@ Met **Scènenummers vastzetten** behouden bestaande scènes hun nummer bij hersc
 Kies een opgeslagen revisie bij **Vergelijk afdruk met revisie** om nieuwe of gewijzigde huidige regels met een sterretje te markeren. Je kunt alleen gemarkeerde pagina's afdrukken. Verwijderde tekst verschijnt niet op de afdruk en wijzigingen kunnen extra regels door herafbreking markeren; gebruik ook de revisievergelijking. Dit is geen vergrendeld productiepaginasysteem.
 
 Voeg bij de scriptelementen **Gelijktijdige dialoog** toe voor twee kolommen. FDX bewaart de ondersteunde twee-sprekerstructuur; controleer dit in het andere programma. Fountain en DOCX voeren beide stemmen na elkaar uit en bewaren geen kolomindeling. Revisiemarkeringen binnen gelijktijdige FDX-dialoog worden niet bewaard. Onder **Draaiboek en rapporten** zijn scènes per locatie, scènes per personage en dialoog per personage beschikbaar. Deze overzichten gebruiken de ingevoerde locatie en personagevermeldingen; controleer of die volledig zijn.
+
+### Visuele dagplanning en verspreiding registreren
+
+In **Productie → Dagoverzicht → Planning** geeft de visuele dagplanning de activiteiten met een ingevulde begintijd chronologisch weer. De eindtijd volgt uit de ingevoerde duur; de som telt activiteiten op en is geen berekening van de verstreken tijd. Controleer ontbrekende tijden, overlap en pauzes zelf.
+
+In **Productie → Call sheet → Verspreiding bijhouden** kun je handmatig ontvangers en afdelingen toevoegen. Kies **Nieuwe versie uitgeven** om het versienummer te verhogen en de ontvangststatussen terug te zetten. Na uitgave kun je per ontvanger aangeven of de call sheet is verstuurd of bevestigd. De geregistreerde verzendtijd is het moment waarop je de status handmatig aanpast; Takevera verstuurt geen berichten en controleert geen ontvangst. Het versienummer en de uitgiftetijd verschijnen op de afdruk. Bij uitgave bewaart Takevera een momentopname van de relevante projectgegevens en toont het **Gewijzigd sinds uitgave** als die later veranderen. Eerdere gegevens zijn onder **Eerdere uitgaven** te bekijken. Bewaar de PDF afzonderlijk: selectie en documentweergave zijn geen bevroren PDF. Geef na wijzigingen een nieuwe versie uit. Oude uitgaven zonder momentopname zijn niet controleerbaar.
+
+### Scènes verplaatsen en beschikbaarheid per tijdvak
+
+Open in **Productie → Dagoverzicht → Scènes** bij een toegewezen scène **Verplaatsen**. Kies een ontgrendelde doeldag, bekijk de betrokken gegevens en kies of shots van de brondag meegaan. De tijdlijnen, personen en apparatuurboekingen veranderen niet automatisch; controleer beide dagen. Een scène kan al op de doeldag staan. Na de verplaatsing blijft die toewijzing behouden.
+
+Onder **Beschikbaarheid per tijdvak** kun je per draaidag een optioneel begin en einde voor een persoon of locatie invoeren. De waarschuwingen vergelijken tijdvakken van personen met alle ingeplande activiteiten op de dag: dat is een controlepunt, geen bewijs dat de persoon voor elke activiteit nodig is. Locaties worden vergeleken met gekoppelde scèneactiviteiten. Handmatige activiteiten zonder scènekoppeling worden niet aan locaties toegeschreven. Een onvolledig tijdvak wordt gemeld; geen waarschuwing garandeert geen beschikbaarheid.
+
+Via **Productie → exportmenu → Rapport → CSV · scènes en breakdown** exporteer je scènegegevens, ingevoerde locaties, personagevermeldingen, toegewezen draaidagen en breakdownitems. Het rapport leidt acteurs niet automatisch af uit personages en bevat geen betrouwbare pagina-eenheden. Controleer de gegevens na export.
+
+### Verhaalkaarten, tijdlijn en outline
+
+Op **Verhaalbord** kun je per kaart een verhaallijn, een kleur en personages invullen. Scheid meerdere personages met komma's. Filter de kaarten op verhaallijn of open de verhaaltijdlijn en filter die op personage. De kaartvolgorde bepaalt de volgorde van de tijdlijn; het is geen automatische datumtijdlijn. In de projectbijbel bestaat daarnaast de tijdlijn met afzonderlijke gebeurtenissen.
+
+Kies eventueel een structuursjabloon voor film, korte film, serie of documentaire. De sjabloonkaarten worden na bevestiging toegevoegd aan bestaande kaarten. Met **Outline exporteren** sla je alle kaarten op als tekstbestand. In **Script** opent **Outline naast script** een zijpaneel met de kaartinhoud en knoppen naar gekoppelde scènes.
+
+De status voor realtime samenwerking toont de toestand van beide verbindingen. Een verbinding is geen bevestiging dat alle wijzigingen door de server zijn opgeslagen; controleer de lokale opslagstatus en houd een onafhankelijke back-up.
+
+### Breakdownoverzicht en persoonlijke call-sheetkopie
+
+In **Breakdown** kun je een item uit een andere scène kiezen en als uitgangspunt kopiëren. De kopie is zelfstandig: wijzigingen lopen niet automatisch mee en de kopie heeft geen koppeling met scripttekst. Tag tekst in de huidige scène opnieuw als je zo'n bronkoppeling wilt.
+
+Bij **Productie → exportmenu → Rapport** staat **Benodigdheden per categorie en dag**. Dit afdrukbare overzicht groepeert breakdownitems op hun categorie en vermeldt de scènes en toegewezen draaidagen. Een categorie is niet automatisch een productieafdeling; controleer wie verantwoordelijk is.
+
+Bij de call sheet kun je via **Kopie voor** een geregistreerde ontvanger kiezen. De afdruk vermeldt de naam en afdeling. Onder **Onderdelen voor deze kopie** kies je scènes, taken en apparatuur, dagplanning, shotlist en cast en crew. Basisgegevens, locatie en veiligheid blijven altijd opgenomen. Binnen gekozen onderdelen worden personen en details niet automatisch gefilterd. De pagina toont de geselecteerde onderdelen en vóór het afdrukken verschijnt een overzicht. Controleer ook de instelling voor contactgegevens en de PDF voordat je de kopie zelf deelt. Deze keuze past de handmatige verspreidingsstatus niet automatisch aan.
+
+### Breakdownitems koppelen
+
+Kies in **Breakdown** bij **Bestaand item als uitgangspunt** een item uit een andere scène en klik op **Item koppelen**. De scènes delen dan de naam en categorie. Eigenaar, status en bronverwijzing naar scripttekst blijven per scène zelfstandig. Je kunt de naam of categorie alleen aanpassen als alle betrokken scènes ontgrendeld zijn. Een item verwijderen verwijdert alleen de koppeling in die scène. **Kopie toevoegen** blijft beschikbaar voor een geheel zelfstandig item.
+
+Om een gekoppeld item aan tekst in de huidige scène te verbinden, selecteer je de tekst in **Script**, kies je het bestaande item bij **Koppelen aan** en gebruik je de tagknop. Een bestaande bronverwijzing wordt alleen na bevestiging vervangen. Controleer de waarschuwing in Breakdown wanneer de tekst later verandert.
+
+### Realtime samenwerking lokaal proberen
+
+Dit is een lokale proef op één computer vanuit de broncode; het geïnstalleerde pakket bevat geen beheerde serverdienst. Zorg dat Node.js en de projectafhankelijkheden zijn geïnstalleerd. Maak eerst een volledige projectback-up.
+
+1. Open een terminal in de Takevera-projectmap en voer `npm run collab:admin -- init ./scriptstudio-collaboration-data` uit.
+2. Zoek de project-ID in een geëxporteerd projectbestand. Maak met `npm run collab:admin -- invite PROJECT_ID owner "Naam"` een uitnodiging. De token wordt één keer getoond: behandel die als een wachtwoord.
+3. Start de server met `npm run collab:server` en laat de terminal open. De standaardverbinding is `ws://127.0.0.1:1234`; die werkt alleen op dezelfde computer.
+4. Vul onder **Instellingen** het serveradres, de naam en token in. Open hetzelfde project en kies via het projectmenu **Samenwerken**. Controleer de verbindingsstatus en sla een kleine proefwijziging op.
+5. Voor toegang vanaf andere computers zijn een bereikbare eigen server, veilig ingerichte TLS en aanvullend beheer nodig. Deel een uitnodiging alleen via een passend beveiligd kanaal. Een beheerde dienst is niet inbegrepen.
+
+De verbindingsstatus bevestigt geen duurzame opslag op de server. Bewaar afzonderlijke back-ups en controleer het herstel.
+
+### Cast per scène en draaidag
+
+Vul bij een castlid in de projectbijbel het veld **Personage (cast)** in. Het rapport **Cast, scènes en draaidagen** in het productie-exportmenu zoekt deze naam exact, zonder onderscheid tussen hoofdletters en kleine letters, in personagevermeldingen van het script. Het toont vervolgens de aan die scènes toegewezen dagen. Een leeg veld of afwijkende naam levert geen overeenkomst op; controleer altijd inzet en beschikbaarheid. Een scènetoewijzing garandeert niet dat de acteur die hele dag nodig is.
+
+### Uitnodiging kopiëren en invullen
+
+Na het aanmaken van een uitnodiging via de lokale beheerinterface in **Instellingen** kun je **Uitnodiging kopiëren** kiezen. Het opgeslagen samenwerkingsadres, de project-ID en de geheime token worden dan samen gekopieerd; deel ze via een veilig kanaal. Een lokaal adres werkt alleen op dezelfde computer. De ontvanger moet het bijbehorende project al hebben: de uitnodiging bevat geen projectbestand.
+
+Open het project, kies onder **Instellingen → Samenwerking → Uitnodiging plakken** en laat de velden invullen. Controleer het adres, vul je naam in en sla de instellingen op. Daarna kun je de verbinding starten. De functie host geen server en verzendt de uitnodiging niet zelf.
+
+### Productieoverzicht en planningkoppelingen
+
+De navigatie volgt ontwikkeling, scenario en voorbereiding, en planning en draaidag. Bestaande werkruimtes blijven beschikbaar. **Productieoverzicht** toont controlepunten per fase; de aantallen zijn geen garantie dat de voorbereiding compleet is.
+
+Bij invoegen, herschikken en verwijderen van scènes worden gekoppelde planningactiviteiten bijgewerkt. De bestaande omschrijving wordt niet automatisch herschreven: controleer gemarkeerde regels. Bij het verwijderen van een gekoppelde scène blijft de activiteit met een waarschuwing bestaan. Bij oudere projecten kan Takevera niet achteraf vaststellen of een koppeling vóór deze verbetering al verkeerd was; controleer daarom bestaande planningen. Het planningsvoorstel gebruikt personagenamen uit scriptblokken en de expliciete castkoppeling uit de projectbijbel.
+
+### Projectnavigatie kiezen
+
+Bij het maken van een project kun je kiezen welke onderdelen in de navigatie verschijnen. Standaard zijn alle onderdelen zichtbaar. Via **Instellingen → Projectnavigatie** kun je de keuze later voor het geopende project wijzigen. De keuze verbergt alleen navigatieknoppen: onderdelen en projectgegevens worden niet verwijderd. Bestaande projecten zonder deze instelling tonen alle onderdelen.
+
+### Van projectstart tot afronding
+
+Bij het openen van een project toont **Projectoverzicht** een mogelijke volgende stap en knoppen naar de werkruimtes. Dit zijn suggesties, geen verplichte volgorde of bewijs van volledigheid. In **Script → Voorbereiding van deze scène** zie je gekoppelde breakdownitems, shots, draaidagen en apparatuur. Als je een ingeplande scène wijzigt, verwijst een melding naar de betrokken dagen en call sheets; controleer die zelf.
+
+Het **Dagoverzicht** brengt de toegewezen scènes, mensen, locaties, apparatuur en geregistreerde waarschuwingen bij elkaar. De call sheet toont de stappen voor controle, uitgave en handmatig delen. Via **Productie → Afronden** controleer je open taken, apparatuur, begroting en back-up. Een apparatuuritem is geen bevestigde retour; controleer retour en afgeleverde documenten zelf.
+
+### Volledig scherm en werkruimte rustig maken
+
+Open bovenaan **Weergave**. Met **Volledig scherm** gebruik je het volledige venster; kies dezelfde optie opnieuw om terug te keren. De bediening staat ook in de compacte call-sheetweergave. Dit beïnvloedt de weergave, niet je project of de PDF-uitvoer.
+
+Kies **Navigatie verbergen** voor meer ruimte en **Navigatie tonen** om haar terug te krijgen. In Script en Breakdown kun je ook de scèneslijst verbergen en opnieuw tonen. **Rustige balk** verbergt een deel van de bovenbalk; met **Alle knoppen** maak je die weer zichtbaar. In schrijfmodus blijft **Schrijfmodus sluiten** bovenaan zichtbaar. Controleer bij kleine vensters of grotere tekst of alle benodigde bediening zichtbaar is.
+
+### Rustiger schrijven en shotdetails
+
+In **Script → Schrijfhulpmiddelen** staan feedback, voorlezen, scriptcontrole en geschiedenis bij elkaar. De knoppen voor editor-, kaarten- en leesweergave en de outline blijven direct beschikbaar.
+
+In **Productie → Shotlist** staan scène, beschrijving, kader, beweging en lens vooraan. Open **Geluid, licht en extra details** voor de overige velden en beeldreferentie. Bij shots met ingevulde extra gegevens staat dit onderdeel bij het openen al open. De gegevens en acties blijven behouden.

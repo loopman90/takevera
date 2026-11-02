@@ -35,8 +35,8 @@ app.whenReady().then(async () => {
     };
     await capture('projects', `section='home';render()`);
     await capture('script', `section='script';render()`);
-    await capture('shotlist', `section='production';prodTab='shotlist';render()`);
-    await capture('lighting', `section='production';prodTab='light';render()`);
+    await capture('shotlist', `section='production';prodTab='shotlist';render();document.querySelector('.production-phase-overview').open=false`);
+    await capture('lighting', `section='production';prodTab='light';render();document.querySelector('.production-phase-overview').open=false`);
     await capture('script-dark', `localStorage.setItem('scriptstudio-theme','dark');section='script';render()`);
     await capture('help', `localStorage.setItem('scriptstudio-theme','light');section='script';render();showHelp()`);
     win.destroy(); app.exit(0);

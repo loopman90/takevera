@@ -35,7 +35,7 @@ Deze kaart vergelijkt de oorspronkelijke Takevera-specificatie met de huidige co
 | Lokale modelruntime | Niet ingebouwd | De gebruiker installeert en start een lokaal model apart. Er is geen verplichte leverancier of AI-account. |
 | Gedeelde-map-synchronisatie | Aanwezig, handmatig | Projecten kunnen met expliciete bevestiging als snapshots worden uitgewisseld. Dit is geen realtime bewerking. |
 | Realtime samenwerking | Aanwezig met zelfbeheer | Yjs CRDT-documenten, rollen, projectuitnodigingen, aanwezigheid, scèneopmerkingen en serverauditlog. Een eigen server en beheer van hosting/TLS zijn nodig. |
-| Samenwerkingsgeschiedenis | Gedeeltelijk | Activiteiten registreren auteur, tijd, gewijzigd gebied en scène. Een wijziging aan één scène kan onder voorwaarden een begrensd herstelpunt van de script-/revisievelden bewaren en herstellen (maximaal 20/1 MiB/128 KiB per punt). Reacties en afbeeldingen blijven behouden. Te grote wijzigingen, scèneverplaatsingen en wijzigingen aan meerdere scènes blijven activiteiten zonder herstelpunt; gebruik daarvoor benoemde scriptrevisies. Undo/redo geldt alleen voor de lokale sessie. |
+| Samenwerkingsgeschiedenis | Gedeeltelijk | Activiteiten registreren auteur, tijd, gewijzigd gebied en scène. Een wijziging aan één of meerdere scènes kan onder voorwaarden een begrensd herstelpunt van de script-/revisievelden bewaren en herstellen (maximaal 20/1 MiB/128 KiB per punt). Reacties en afbeeldingen blijven behouden. Te grote wijzigingen en scèneverplaatsingen blijven activiteiten zonder herstelpunt; gebruik daarvoor benoemde scriptrevisies. Undo/redo geldt alleen voor de lokale sessie. |
 
 ## Formaten, platformen en distributie
 
