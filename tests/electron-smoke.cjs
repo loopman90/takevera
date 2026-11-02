@@ -26,7 +26,12 @@ app.whenReady().then(async () => {
       project.shots=[{day:0,scene:0,description:'Interview',framing:'Close-up',movement:'Static',lens:'50 mm',sound:'',light:'',duration:1,notes:''}];
       project.scenes[0].lightingSetup=[{source:'LED',position:'left',modifier:'diffusion',power:'30 W',safety:'secure'}];
       project.equipment=[{name:'Camera',category:'Camera',quantity:1,owner:'',status:'needed',scenes:[0],shots:[],notes:''},{name:'Microphone',category:'Sound',quantity:1,owner:'',status:'checked',scenes:[1],shots:[],notes:''},{name:'Cable',category:'Power',quantity:1,owner:'',status:'packed',scenes:[],shots:[],notes:''}];
+      section='script';render();
+      check(document.querySelector('.action-menu #import-fountain'),'Import should be in the file menu');
+      const fileMenu=document.querySelector('.action-menu');fileMenu.open=true;fileMenu.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));check(!fileMenu.open,'Escape should close the action menu');
       section='production';prodTab='equipment';render();
+      check(document.querySelector('#production-section-select').value==='equipment','Current production section should be selected');
+      check(document.querySelector('.production-export')&&!document.querySelector('.production-export').open,'Production export should start collapsed');
       const select = (query,value) => {const element=document.querySelector(query);check(element,'Missing '+query);element.value=value;element.dispatchEvent(new Event('change',{bubbles:true}));};
       const click = query => {const element=document.querySelector(query);check(element,'Missing '+query);element.click();};
       const savePreset = (query,name) => {click(query);check(document.querySelector('#preset-form'),'Preset dialog missing');document.querySelector('#preset-name').value=name;document.querySelector('#preset-form').dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));};
@@ -47,9 +52,28 @@ app.whenReady().then(async () => {
       check(await flushPendingSave(true),'Saving project failed');const saved=await window.studio.getSavedProject();
       check(saved.productionPresets.length===3 && saved.equipment.length===4 && saved.shots.length===2,'Saved project did not retain changes');
       project=JSON.parse(JSON.stringify(saved));prodTab='equipment';render();check(document.querySelector('[data-apply-preset="equipment"]'),'Preset missing after reopening saved data');
-      prodTab='call';render();check(document.querySelector('[data-equipment]'),'Call sheet equipment status control missing');
-      return 'Equipment filters, three preset types, lighting reference, save/reopen, and call-sheet controls passed.';
+      prodTab='day';render();
+      check(document.querySelector('.day-at-glance'),'Day summary missing');
+      check(!document.querySelector('[data-day-panel="safety"]').open,'Safety panel should start collapsed');
+      document.querySelector('[data-day-panel="safety"]').open=true;
+      const exportPicker=document.querySelector('#production-export-kind');exportPicker.value='report';exportPicker.dispatchEvent(new Event('change',{bubbles:true}));
+      check(document.querySelector('.book-export-controls').hidden && !document.querySelector('.report-export-controls').hidden,'Report selection should show only relevant options');
+      await window.studio.failNextSave();scheduleSave();check(!(await flushPendingSave()),'Simulated save failure was not reported');
+      check(!document.querySelector('#retry-save').hidden && document.querySelector('#save-state').textContent===tr('saveErrorAction'),'Save failure and retry should be visible');
+      click('#retry-save');await new Promise(resolve=>setTimeout(resolve,30));check(document.querySelector('#retry-save').hidden && document.querySelector('#save-state').textContent===tr('save'),'Retry should save and clear error');
+      const briefing=document.querySelector('[data-day="safetyResponsibilities"]');check(briefing,'Safety responsibilities field missing');briefing.value='Safety lead';briefing.dispatchEvent(new Event('input',{bubbles:true}));
+      project.shootDays[0].nearestHospital='Hospital address';project.shootDays[0].emergencyContact='Private emergency number';project.shootDays[0].evacuationInstructions='Assembly point';
+      check(await flushPendingSave(true),'Saving briefing failed');check((await window.studio.getSavedProject()).shootDays[0].safetyResponsibilities==='Safety lead','Briefing did not persist');
+      prodTab='call';callSheetExportContacts=false;render();check(document.querySelector('[data-equipment]'),'Call sheet equipment status control missing');
+      check(document.querySelector('.call-sheet').textContent.includes('Hospital address'),'Hospital must be visible without private contacts');
+      check(!document.querySelector('.call-sheet').textContent.includes('Private emergency number'),'Emergency contact leaked without consent');
+      check(document.querySelector('.call-sheet').textContent.includes('Assembly point'),'Evacuation instructions missing');
+      check(document.querySelector('.call-readiness').textContent.includes(tr('safetyReviewed')),'Missing briefing review should be flagged');
+      click('#call-sheet-contact-export');check(document.querySelector('.call-sheet').textContent.includes('Private emergency number'),'Contact choice did not include emergency contact');
+
+      return 'Navigation, day overview, export choices, save failure and retry, production controls, and call sheet passed.';
     })()`);
+    if (process.env.TAKEVERA_SMOKE_SCREENSHOT) { await win.webContents.executeJavaScript("prodTab='day';render()"); win.setSize(800, 700); await new Promise(resolve => setTimeout(resolve, 100)); fs.writeFileSync(process.env.TAKEVERA_SMOKE_SCREENSHOT, (await win.webContents.capturePage()).toPNG()); }
     console.log(result);
     win.destroy();
     app.exit(0);

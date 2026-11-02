@@ -252,3 +252,21 @@ body.focus-mode .topbar{display:flex;min-height:48px;padding:8px 16px}body.focus
 
 /* Keep the provider-specific workspace input hidden for other providers. */
 #ai-workspace-field[hidden] { display: none; }
+
+/* Keep the sharing checklist on screen, and keep keyboard focus clear of sticky controls. */
+.call-readiness{margin:0 0 18px;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.call-readiness p{margin:6px 0 0}
+:focus-visible{scroll-margin:90px}
+@media print{body[data-print-mode="call-sheet"] .call-readiness{display:none!important}}
+
+/* Compact action menus keep secondary operations available without crowding the toolbar. */
+.action-menu{position:relative;flex:none}.action-menu summary,.production-export summary{display:inline-flex;align-items:center;gap:8px;list-style:none;cursor:pointer}.action-menu summary::-webkit-details-marker,.production-export summary::-webkit-details-marker{display:none}.action-menu summary::after,.production-export summary::after{content:'▾';font-size:10px}.menu-panel{position:absolute;right:0;top:calc(100% + 5px);z-index:20;min-width:210px;padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:7px;box-shadow:0 8px 24px #0002}.menu-panel button{display:block;width:100%;padding:9px 10px;border:0;border-radius:4px;text-align:left;background:transparent;color:var(--ink);font:inherit;font-size:12px}.menu-panel button:hover,.menu-panel button:focus-visible{background:var(--green2)}.menu-heading{display:block;padding:9px 10px 4px;color:var(--muted);font-size:10px;font-weight:600;text-transform:uppercase}.backup-center-trigger{white-space:nowrap}.production-navigation{align-items:center;flex-wrap:wrap;overflow:visible}.production-section-picker{display:flex;align-items:center;gap:8px;margin-left:auto;color:var(--muted);font-size:11px}.production-section-picker select{max-width:220px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)}.production-export{margin:0 0 16px}.production-export>.production-actions{margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+@media(max-width:820px){.topbar .top-actions{overflow:visible;flex-wrap:wrap}.production-section-picker{margin-left:0}.menu-panel{max-width:calc(100vw - 30px)}body[data-call-sheet-mode="on"] .top-actions>.project-menu{display:block!important}}
+@media print{.production-export{display:none!important}}
+
+.day-at-glance{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 16px;padding:18px;border:1px solid var(--line);border-radius:9px;background:var(--green2)}.day-at-glance h2{margin:0 0 8px;font:19px var(--serif)}.day-at-glance p{margin:5px 0;line-height:1.5}.day-panel>summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center;list-style:none}.day-panel>summary::-webkit-details-marker{display:none}.day-panel>summary::after{content:'▾';margin-left:auto}.day-panel[open]>summary::after{content:'▴'}.day-panel>summary small{color:var(--muted)}.day-panel[open]>summary{margin-bottom:18px}.production-export-choice{display:flex;align-items:center;gap:10px;margin-top:12px}.production-export-choice select{padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)}.book-export-controls,.report-export-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}[hidden]{display:none!important}.save-feedback{max-width:220px;white-space:normal!important}.save-feedback:empty{display:none}
+@media(max-width:700px){.day-at-glance{align-items:flex-start;flex-direction:column}.day-panel>summary{flex-wrap:wrap}.production-export-choice{align-items:flex-start;flex-direction:column}}
+
+/* A more legible application mark in the navigation. */
+.brand-icon{width:42px;height:42px;flex:0 0 42px}
+@media(max-width:820px){.brand-icon{width:36px;height:36px;flex-basis:36px}}

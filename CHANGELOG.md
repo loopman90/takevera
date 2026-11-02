@@ -4,7 +4,9 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
-- No changes recorded yet.
+- Version 0.1.2: reorganized navigation and export controls; improved day overview, call sheets, safety briefings, backup guidance, save feedback, accessibility and logo sizing.
+- Added custom project pages.
+- Windows and Linux packages remain portable test builds; macOS builds are ad-hoc signed and not notarized.
 
 ## 0.1.1-beta.1 — 2026-11-01
 
@@ -56,4 +58,4 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 - macOS development packages are not notarized; Windows development packages are unsigned.
 - Some file conversions omit formatting and metadata; see the user guide.
 
-Source package version: **0.1.1** for the latest beta.
+Source package version: **0.1.2**; the latest published beta is 0.1.1.

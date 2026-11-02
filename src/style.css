@@ -16,3 +16,4 @@
 .shot-row{grid-template-columns:28px minmax(0,1fr) 105px}
 .lighting-setup-row{grid-template-columns:repeat(5,minmax(100px,1fr)) 105px}
 @media(max-width:850px){.lighting-setup-row{grid-template-columns:repeat(2,minmax(120px,1fr))}.lighting-setup-row .preset-row-actions button{grid-column:auto}}
+.custom-page-add{margin-top:6px!important;border:1px dashed var(--line)!important}.custom-page-editor{padding:24px;max-width:900px}.custom-page-content{min-height:50vh;resize:vertical;line-height:1.65}
