@@ -4,7 +4,7 @@ A local-first desktop workspace for writing scripts and preparing production boo
 
 ![Takevera script editor with a fictional example project](website/assets/screenshots/script.png)
 
-**Status:** version 0.1.2 beta is a development release. Download it from [GitHub Releases](https://github.com/loopman90/takevera/releases/tag/v0.1.2-beta.1) or visit the [project website](https://loopman90.github.io/takevera/). The project uses the MIT licence.
+**Status:** version 0.1.3 beta is a development release. Download it from [GitHub Releases](https://github.com/loopman90/takevera/releases/tag/v0.1.3-beta.1) or visit the [project website](https://loopman90.github.io/takevera/). The project uses the MIT licence.
 
 ## Start here
 
@@ -29,7 +29,7 @@ These features are implemented in the development app; not every workflow has be
 
 ## Platforms and installation
 
-The [0.1.2 beta release](https://github.com/loopman90/takevera/releases/tag/v0.1.2-beta.1) provides macOS DMGs and portable Windows and Linux test packages. Verify downloads using the included SHA-256 checksums.
+The [0.1.3 beta release](https://github.com/loopman90/takevera/releases/tag/v0.1.3-beta.1) provides macOS DMGs and portable Windows and Linux test packages. Verify downloads using the included SHA-256 checksums.
 
 | Platform | Current state |
 | --- | --- |

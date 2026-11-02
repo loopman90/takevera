@@ -4,6 +4,8 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
+## 0.1.3-beta.1 — 2026-11-02
+
 - Add a scene-linked story board, alternative scene and primary-dialogue versions, selective restoration from revisions and local backups, an offline feedback round, scene read-aloud with local system voices, and script checks. These features do not lock production pages.
 
 - Add stable scene numbering, writing shortcuts, source-linked breakdown tags, dual-dialogue editing and basic FDX exchange, script reports and print revision marks. Locked production pagination is not yet supported.

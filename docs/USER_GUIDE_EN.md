@@ -7,13 +7,13 @@ The packaged Mac app requires macOS 13 Ventura or newer. The ARM64 build was mad
 
 ## Open a Mac build
 
-The 0.1.2 beta is available from the official GitHub release. The Mac build uses an ad-hoc signature without Apple Developer ID signing or notarization. An ad-hoc signature does not establish the developer’s identity; macOS may block the first launch.
+The 0.1.3 beta is available from the official GitHub release. The Mac build uses an ad-hoc signature without Apple Developer ID signing or notarization. An ad-hoc signature does not establish the developer’s identity; macOS may block the first launch.
 
 Obtain the release from the official project source and check that it is the expected, unmodified file. Try opening the app first. If macOS blocks it, **System Settings → Privacy & Security** may offer **Open Anyway**. Follow [Apple’s instructions and safety guidance](https://support.apple.com/en-us/102445). Do not open an app reported as malware, damaged or modified. Wording and availability depend on the macOS version and device management.
 
 ## Windows and Linux
 
-The 0.1.2 beta includes an unsigned portable Windows x64 test package. The Windows-built package passed an automated startup check on a Windows runner; interactive validation is still needed. It is not an installer. Extract the whole ZIP and open Takevera.exe; Windows may warn or block it. A portable Linux x64 test archive passed an automated startup check on a Linux runner; interactive validation is still needed: extract the full tar.gz file and run `./takevera` in the extracted folder. A graphical desktop and a working Chromium sandbox are required; this is not an installer or AppImage. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
+The 0.1.3 beta includes an unsigned portable Windows x64 test package. The Windows-built package passed an automated startup check on a Windows runner; interactive validation is still needed. It is not an installer. Extract the whole ZIP and open Takevera.exe; Windows may warn or block it. A portable Linux x64 test archive passed an automated startup check on a Linux runner; interactive validation is still needed: extract the full tar.gz file and run `./takevera` in the extracted folder. A graphical desktop and a working Chromium sandbox are required; this is not an installer or AppImage. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
 
 ## Find help
 

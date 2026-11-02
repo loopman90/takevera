@@ -6,13 +6,13 @@ De meegeleverde Mac-app vereist macOS 13 Ventura of nieuwer. De ARM64-versie is 
 
 ## Een Mac-versie openen
 
-De 0.1.2-bètaversie is beschikbaar via de officiële GitHub-release. De Mac-versie is lokaal technisch ondertekend, zonder Apple Developer ID en zonder notarization. Die handtekening bewijst de identiteit van de maker niet; macOS kan de app bij de eerste start blokkeren.
+De 0.1.3-bètaversie is beschikbaar via de officiële GitHub-release. De Mac-versie is lokaal technisch ondertekend, zonder Apple Developer ID en zonder notarization. Die handtekening bewijst de identiteit van de maker niet; macOS kan de app bij de eerste start blokkeren.
 
 Download de versie alleen via de officiële projectbron en controleer dat het bestand het verwachte, ongewijzigde bestand is. Probeer de app te openen. Blokkeert macOS de app, dan kan onder **Systeeminstellingen → Privacy en beveiliging** de optie **Open toch** verschijnen. Volg de [uitleg en veiligheidsadviezen van Apple](https://support.apple.com/en-us/102445). Verschijnt een melding dat de app malware bevat of beschadigd of gewijzigd is, open deze dan niet. De precieze tekst en beschikbaarheid verschillen per macOS-versie en beheerde computer.
 
 ## Windows en Linux
 
-De 0.1.2-bètarelease bevat een ongetekend draagbaar Windows x64-testpakket. Het op Windows gebouwde pakket is automatisch gestart op een Windows-runner; interactieve validatie blijft nodig. Het is geen installatieprogramma. Pak het hele ZIP-bestand uit en start Takevera.exe; Windows kan waarschuwen of de app blokkeren. Voor Linux x64 is een draagbaar testpakket beschikbaar dat automatisch op een Linux-runner is gestart; interactieve validatie blijft nodig: pak het tar.gz-bestand volledig uit en start `./takevera` in de uitgepakte map. Een grafische omgeving en een werkende Chromium-sandbox zijn vereist; het is geen installatieprogramma of AppImage. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
+De 0.1.3-bètarelease bevat een ongetekend draagbaar Windows x64-testpakket. Het op Windows gebouwde pakket is automatisch gestart op een Windows-runner; interactieve validatie blijft nodig. Het is geen installatieprogramma. Pak het hele ZIP-bestand uit en start Takevera.exe; Windows kan waarschuwen of de app blokkeren. Voor Linux x64 is een draagbaar testpakket beschikbaar dat automatisch op een Linux-runner is gestart; interactieve validatie blijft nodig: pak het tar.gz-bestand volledig uit en start `./takevera` in de uitgepakte map. Een grafische omgeving en een werkende Chromium-sandbox zijn vereist; het is geen installatieprogramma of AppImage. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
 
 ## Hulp vinden
 
