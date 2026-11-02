@@ -5,6 +5,9 @@ window.addEventListener('dragover',event=>{const zone=droppedZone(event);if(even
 window.addEventListener('dragleave',event=>{const zone=droppedZone(event);if(zone&&!zone.contains(event.relatedTarget))zone.classList.remove('image-drop-active')});
 window.addEventListener('drop',async event=>{const zone=droppedZone(event);if(!zone){if(event.dataTransfer?.files?.length)event.preventDefault();return}if(!activeImageDropProject){event.preventDefault();return}event.preventDefault();event.stopPropagation();zone.classList.remove('image-drop-active');if(zone.dataset.imageDropDisabled==='true'){imageDropCallback?.({projectId:activeImageDropProject,target:{kind:zone.dataset.imageDropTarget},error:'This image drop target is locked or read-only'});return}const paths=Array.from(event.dataTransfer?.files||[]).slice(0,20).map(file=>webUtils.getPathForFile(file)).filter(Boolean);if(!paths.length)return;const projectId=activeImageDropProject,target={kind:zone.dataset.imageDropTarget,index:Number(zone.dataset.imageDropIndex),entityKind:zone.dataset.imageDropKind||'',scope:zone.dataset.imageDropScope||'',single:zone.dataset.imageDropSingle==='true'};try{const images=await ipcRenderer.invoke('assets:add-dropped',projectId,target.single?paths.slice(0,1):paths);imageDropCallback?.({projectId,target,images})}catch(error){imageDropCallback?.({projectId,target,error:String(error?.message||error)})}});
 contextBridge.exposeInMainWorld('studio',{
+ toggleFullScreen:()=>ipcRenderer.invoke('window:fullscreen:toggle'),
+ getFullScreen:()=>ipcRenderer.invoke('window:fullscreen:get'),
+ onFullScreenChange:callback=>ipcRenderer.on('window:fullscreen:changed',(_event,value)=>callback(!!value)),
  helpGuide:language=>ipcRenderer.invoke('help:guide',language),
  listProjects:()=>ipcRenderer.invoke('projects:list'),
  listRecoverable:()=>ipcRenderer.invoke('projects:recoverable'),
@@ -30,6 +33,8 @@ contextBridge.exposeInMainWorld('studio',{
  exportFeedback:request=>ipcRenderer.invoke('feedback:export',request),
  importFeedback:()=>ipcRenderer.invoke('feedback:import'),
  importFountain:()=>ipcRenderer.invoke('script:fountain:import'),
+ exportOutline:(title,text)=>ipcRenderer.invoke('story:outline:export',title,text),
+ exportProductionCsv:(title,text)=>ipcRenderer.invoke('production:csv:export',title,text),
  exportFountain:(title,text)=>ipcRenderer.invoke('script:fountain:export',title,text),
  importFDX:()=>ipcRenderer.invoke('script:fdx:import'),
  exportFDX:(title,text,projectJson)=>ipcRenderer.invoke('script:fdx:export',title,text,projectJson),

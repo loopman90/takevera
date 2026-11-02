@@ -176,6 +176,12 @@ export async function connectProject(options) {
   const user = { name: String(username || 'Takevera user').slice(0, 80), color: `hsl(${Math.floor(Math.random()*360)} 38% 42%)`, sceneId: '', sceneHeading: '' };
   let closed = false, published = false;
   let contentSynced = false, commentsSynced = false;
+  const connectionStates = { content: 'connecting', comments: 'connecting' };
+  const reportConnection = (kind, status) => {
+    connectionStates[kind] = status;
+    const states = Object.values(connectionStates);
+    onStatus(states.every(value => value === 'connected') ? 'connected' : states.some(value => value === 'disconnected') ? 'disconnected' : 'connecting');
+  };
   const contentRoot = contentDoc.getMap('scriptstudio');
   const commentsRoot = commentsDoc.getMap('scriptstudio');
   const publish = () => {
@@ -183,9 +189,9 @@ export async function connectProject(options) {
     const value = combineProject(contentRoot, commentsRoot);
     if (value) { published = true; onProject(value); }
   };
-  const content = connectDocument({ url, name: `${projectId}:content`, token, doc: contentDoc, onStatus, onError, awarenessUser: user,
+  const content = connectDocument({ url, name: `${projectId}:content`, token, doc: contentDoc, onStatus: status => reportConnection('content', status), onError, awarenessUser: user,
     onAccess: scope => onAccess('content', scope), onSynced: state => { contentSynced = state; publish(); } });
-  const comments = connectDocument({ url, name: `${projectId}:comments`, token, doc: commentsDoc, onStatus, onError, awarenessUser: user,
+  const comments = connectDocument({ url, name: `${projectId}:comments`, token, doc: commentsDoc, onStatus: status => reportConnection('comments', status), onError, awarenessUser: user,
     onAccess: scope => onAccess('comments', scope), onSynced: state => { commentsSynced = state; publish(); } });
   const presence = () => {
     const states = content.provider.awareness?.getStates?.() || new Map();

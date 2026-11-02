@@ -1,12 +1,16 @@
 const { contextBridge } = require('electron');
 const fs = require('node:fs');
 const path = require('node:path');
+let testFullScreen = false, fullScreenCallback = null;
 let savedProject = null, failNextSave = false, failRecovery = false, feedbackRequest = null, feedbackResponse = null;
 
 contextBridge.exposeInMainWorld('studioLocale', {
   get: async language => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'locales', `${language}.json`), 'utf8'))
 });
 contextBridge.exposeInMainWorld('studio', {
+  getFullScreen: async () => testFullScreen,
+  toggleFullScreen: async () => { testFullScreen = !testFullScreen; fullScreenCallback?.(testFullScreen); return true; },
+  onFullScreenChange: callback => { fullScreenCallback = callback; },
   listProjects: async () => [],
   listRecoverable: async () => [],
   listBackups: async () => [],

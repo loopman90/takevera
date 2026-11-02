@@ -105,7 +105,7 @@ Open **Tasks** to manage owners, due dates, and statuses. Task status remains co
 
 ## 9. Revisions, printing, and backups
 
-Save a script revision with a date, version number, and note. Compare a revision with the current text or choose two saved revisions to compare them with each other. You can restore a revision. With real-time collaboration enabled, the activity list records who saved a change, when it happened, which scene changed, and which project area was updated. It retains up to 1,000 events and reports when older entries are removed. For a change to one scene, when the scene count and order stay the same, the activity list keeps a bounded recovery point for that scene’s script/revision fields. Choose **Restore script before this change** to restore those fields; comments and images are retained. It keeps up to 20 recovery points, 1 MiB combined, with a 128 KiB limit per point. Oversized edits, scene moves, and edits to multiple scenes remain activity-only; save a named revision for those. When an update from another collaborator arrives, session undo/redo history is reset with a notice so an old snapshot cannot overwrite newer content. Revision pages can have a color; enable background graphics in the print dialog to retain that color in a PDF.
+Save a script revision with a date, version number, and note. Compare a revision with the current text or choose two saved revisions to compare them with each other. You can restore a revision. With real-time collaboration enabled, the activity list records who saved a change, when it happened, which scene changed, and which project area was updated. It retains up to 1,000 events and reports when older entries are removed. For changes to one or more scenes, when the scene count and order stay the same, the activity list can keep a bounded recovery point for their script/revision fields. Choose **Restore script before this change** to restore those fields; comments and images are retained. It keeps up to 20 recovery points, 1 MiB combined, with a 128 KiB limit per point. Oversized edits and scene moves remain activity-only; save a named revision for those. Restoration requires all affected scenes to be unlocked and unchanged since that edit; a local recovery backup is made first. When an update from another collaborator arrives, session undo/redo history is reset with a notice so an old snapshot cannot overwrite newer content. Revision pages can have a color; enable background graphics in the print dialog to retain that color in a PDF.
 
 From **Production**, print or save as PDF the complete book, active shoot day, call sheet, shot list, lighting plan, sound plan, cast/crew roster, and equipment list. Adjust the project template if needed and use **Manage export templates** to save your own templates. Add custom text sections to the book there, then include or hide them per template and move them into order. Review which sections and contact details will be included before final export. Personal phone numbers require both the export switch and per-person consent.
 
@@ -180,3 +180,89 @@ Script history lists named revisions and available local recovery points, and ca
 For an offline feedback round, export the HTML file from the script and share it yourself. It includes all scene script text, but not production notes, contacts or images. The reader opens it locally, writes comments and saves a response file to return to you. Import the response and review the matched count before adding comments. No file is sent automatically.
 
 Production page locking, A-pages and omitted pages are not supported; print pagination is recalculated.
+
+### Visual schedule and distribution tracking
+
+In **Production → Day overview → Schedule**, the visual schedule shows activities with a start time in chronological order. End times are calculated from the entered duration; the sum of activities is not elapsed time. Check missing times, overlaps and breaks yourself.
+
+In **Production → Call sheet → Track distribution**, add recipients and departments manually. Choose **Issue new version** to increment the version and reset recipient statuses. You can then mark each recipient as sent or confirmed. The recorded sent time is when you manually changed the status; Takevera does not send messages or verify delivery. The version and issue time appear on the printout. On issue, Takevera records a snapshot of relevant project data and displays **Changed since issue** if it changes. You can inspect earlier data under **Issue history**. Save the PDF separately: section selection and document appearance are not a frozen PDF. Issue a new version after changes. Older issues without a snapshot cannot be verified.
+
+### Moving scenes and availability windows
+
+In **Production → Day overview → Scenes**, choose **Move** on an assigned scene. Select an unlocked destination, review the impact and choose whether to move source-day shots. Timelines, people and equipment bookings are not adjusted automatically; check both days. If the scene is already assigned to the destination, that assignment is retained.
+
+Under **Availability by time window**, optionally enter a start and end for a person or location on the selected day. Person warnings compare the window with all scheduled activities, so they are a prompt to review, not proof that the person is needed throughout. Locations are compared with linked scene activities. Manual activities without scene links cannot be attributed to locations. Incomplete windows are reported; no warning does not guarantee availability.
+
+Use **Production → export menu → Report → CSV · scenes and breakdown** to export scene details, entered locations, character cues, assigned days and breakdown items. The report does not infer actors from characters or provide reliable page units. Review the exported data.
+
+### Story cards, timeline and outline
+
+On **Story board**, enter a storyline, color and characters for each card. Separate multiple characters with commas. Filter cards by storyline, or open the story timeline and filter it by character. Card order determines timeline order; it is not an automatic chronological timeline. The project bible also contains a timeline of separate events.
+
+Optionally choose a structure template for a feature, short film, series or documentary. After confirmation, template cards are added to the existing cards. **Export outline** saves all cards as a text file. In **Script**, **Outline beside script** opens a panel with card contents and links to associated scenes.
+
+The realtime collaboration status reflects the state of both connections. A connection does not confirm that every change has been saved by the server; check local save status and keep an independent backup.
+
+### Breakdown report and recipient-labelled call sheet
+
+In **Breakdown**, choose an item from another scene as a starting point. The copy is independent: later changes are not synchronized, and it has no script-text link. Tag text in the current scene separately if you need a source link.
+
+Under **Production → export menu → Report**, choose **Breakdown by category and day**. This printable report groups breakdown items by category and lists their scenes and assigned shoot days. A category is not automatically a production department; check who is responsible.
+
+On the call sheet, select a recorded recipient under **Copy for**. The printout includes the name and department. Under **Sections for this copy**, choose scenes, tasks and equipment, schedule, shot list and cast and crew. Basic details, location and safety are always included. People and details within selected sections are not automatically filtered. The page previews your selection and displays a summary before printing. Also review the contact setting and PDF before sharing it yourself. This selection does not automatically update the manual distribution status.
+
+### Linking breakdown items
+
+In **Breakdown**, choose an item from another scene under **Use an existing item as a starting point**, then choose **Link item**. The scenes share its name and category; owner, status and source text anchor remain specific to each scene. All linked scenes must be unlocked to change the name or category. Removing an item removes only that scene's link. **Add copy** remains available for an independent item.
+
+To link a shared item to text in the current scene, select the text in **Script**, choose the existing item under **Link to**, and use the tag button. An existing anchor is replaced only after confirmation. Check the warning in Breakdown when the text later changes.
+
+### Try realtime collaboration locally
+
+This is a local, single-computer trial from the source checkout; the installed package does not include a managed server. Install Node.js and the project dependencies first, and make a full project backup.
+
+1. Open a terminal in the Takevera project directory and run `npm run collab:admin -- init ./scriptstudio-collaboration-data`.
+2. Find the project ID in an exported project file. Run `npm run collab:admin -- invite PROJECT_ID owner "Name"`. The token is shown once; protect it like a password.
+3. Start the server with `npm run collab:server` and leave the terminal open. The default address `ws://127.0.0.1:1234` works only on the same computer.
+4. Enter the server address, name and token under **Settings**. Open the same project and choose the collaboration command in the project menu. Check the connection status and save a small test edit.
+5. Other computers require your own reachable server, properly configured TLS and additional administration. Share an invitation only through an appropriately secure channel. No managed service is included.
+
+Connection status does not confirm durable server storage. Keep separate backups and test recovery.
+
+### Cast by scene and shoot day
+
+Enter a cast member's **Character (cast)** in the project bible. The **Cast, scenes and shoot days** production report matches that name exactly, ignoring case, against character cues in the script and lists days assigned to matching scenes. An empty or different name will not match; always check actual involvement and availability. A scene assignment does not guarantee an actor is needed for the whole day.
+
+### Copying and filling an invitation
+
+After creating an invitation through the local administration interface in **Settings**, choose **Copy invitation**. The saved collaboration address, project ID and secret token are copied together; share them through a secure channel. A local address works only on the same computer. The recipient must already have the matching project: the invitation contains no project file.
+
+Open the project, choose **Settings → Collaboration → Paste invitation**, and fill the fields. Review the address, enter your name and save the settings. You can then connect. This feature does not host a server or send the invitation.
+
+### Production overview and schedule links
+
+Navigation follows development, script and preparation, then planning and shoot. Existing workspaces remain available. The **Production overview** shows checks by phase; counts do not guarantee readiness.
+
+Inserting, reordering or deleting scenes updates linked schedule activities. Existing descriptions are not automatically rewritten: review marked entries. Deleting a linked scene leaves the activity with a warning. Takevera cannot determine retrospectively whether a link in an older project was already incorrect; review existing schedules. The scheduling proposal uses character cues from script blocks and explicit cast mappings in the project bible.
+
+### Choosing project navigation
+
+When creating a project, choose which sections appear in navigation. All sections are visible by default. Change the choice later for the open project under **Settings → Project navigation**. The choice only hides navigation buttons: sections and project data are not deleted. Existing projects without this setting show every section.
+
+### From project start to closeout
+
+When opening a project, **Project overview** suggests a next step and offers links to workspaces. These are suggestions, not a required order or evidence of completeness. In **Script → Scene preparation**, see linked breakdown items, shots, shoot days and equipment. When editing an assigned scene, a notice links to affected days and call sheets; review them yourself.
+
+**Day overview** brings assigned scenes, people, locations, equipment and recorded warnings together. The call sheet shows steps for review, issue and manual sharing. Use **Production → Closeout** to review open tasks, equipment, budget and backup. An equipment item is not a confirmed return; verify returns and delivered documents yourself.
+
+### Full screen and a quieter workspace
+
+Open **View** in the top bar. Choose **Full screen** to expand the window and choose it again to exit. The control also remains available in compact call-sheet mode. This changes the view, not your project or PDF output.
+
+Choose **Hide navigation** for more space and **Show navigation** to bring it back. In Script and Breakdown you can also hide and show the scene list. **Quiet toolbar** hides part of the top bar; **All controls** restores it. In writing mode, **Exit writing mode** remains visible at the top. Check that necessary controls are visible at smaller window sizes or larger text settings.
+
+### A quieter script and shot details
+
+In **Script → Writing tools**, feedback, read-aloud, script check and history are grouped together. Editor, card and reading views and the outline remain directly available.
+
+In **Production → Shot list**, scene, description, framing, movement and lens come first. Open **Sound, lighting and additional details** for the remaining fields and image reference. This section opens automatically for shots with existing additional data. Data and actions are retained.
