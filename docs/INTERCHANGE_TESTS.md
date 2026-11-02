@@ -1,0 +1,7 @@
+# Script exchange checks
+
+`npm run test:smoke` exercises Fountain, FDX and DOCX document XML using small fictional fixtures. It checks scene headings and dialogue through import and export, an FDX revision identifier, safe handling of duplicate headings in embedded project data, and the recovery point and scene links before replacement. The Fountain sample in `tests/fixtures/third-party-fountain/` comes from the separately licensed Fountain Editor project; its attribution and license are in that folder.
+
+The FDX and DOCX fixtures were written for this test; they are not exports from Final Draft, Fade In or Microsoft Word. These checks do not demonstrate full compatibility with those programs, Word document packaging, complex formatting, mixed revision runs, tracked changes or complete project history. PDF import has its own smoke test and does not preserve original pagination. Real files exported from target programs should be checked separately before claiming compatibility. A manual attempt to generate a Fade In export was interrupted by an unresponsive application control session.
+
+The smoke test now also checks that a PDF places both speakers on the same line in separate columns, and covers numbered FDX scenes and a locally generated two-speaker FDX dual-dialogue structure. This is a synthetic round trip, not proof that Final Draft or Fade In accepts or emits every variant. Unsupported nested structures are rejected; Fountain and DOCX exports flatten the two speakers to sequential text.

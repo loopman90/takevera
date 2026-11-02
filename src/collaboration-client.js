@@ -23,7 +23,7 @@ function typeOf(value, pathParts) {
   if (typeof value === 'string') return 'text';
   if (Array.isArray(value)) {
     const key = pathParts.at(-1);
-    const knownObjectArrays = new Set(['scenes','characters','people','locations','shootDays','shots','shortlists','tasks','equipment','moodboards','moodboard','storyboard','timeline','inventory','elements','items','comments','revisions','timelineEvents','productionTemplates','productionPresets','customBookSections']);
+    const knownObjectArrays = new Set(['scenes','characters','people','locations','shootDays','shots','shortlists','tasks','equipment','moodboards','moodboard','storyboard','timeline','inventory','elements','dialogueAlternatives','sceneAlternatives','items','comments','revisions','timelineEvents','productionTemplates','productionPresets','customBookSections','storyBeats']);
     const objects = value.length > 0 && value.every(item => item && typeof item === 'object' && !Array.isArray(item));
     return objects || (value.length === 0 && knownObjectArrays.has(key)) ? 'objects' : 'values';
   }

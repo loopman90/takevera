@@ -4,30 +4,69 @@
   "title": "Takevera project object",
   "description": "Core validation schema for the extensible Takevera project object. Interchange wrappers are documented in PROJECT_FORMAT.md.",
   "type": "object",
-  "required": ["id", "title", "scenes"],
+  "required": [
+    "id",
+    "title",
+    "scenes"
+  ],
   "properties": {
     "id": {
       "type": "string",
       "pattern": "^[A-Za-z0-9_-]{1,80}$"
     },
-    "title": { "type": "string" },
-    "type": { "type": "string" },
-    "language": { "type": "string" },
-    "createdAt": { "type": "integer" },
-    "updatedAt": { "type": "integer" },
-    "logline": { "type": "string" },
-    "synopsis": { "type": "string" },
-    "creators": { "type": "string" },
-    "timeline": { "type": "string" },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "integer"
+    },
+    "updatedAt": {
+      "type": "integer"
+    },
+    "logline": {
+      "type": "string"
+    },
+    "synopsis": {
+      "type": "string"
+    },
+    "creators": {
+      "type": "string"
+    },
+    "timeline": {
+      "type": "string"
+    },
     "timelineEvents": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "when": { "type": "string" },
-          "title": { "type": "string" },
-          "scene": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "type": "string", "const": "" }] },
-          "notes": { "type": "string" }
+          "when": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "scene": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "string",
+                "const": ""
+              }
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
         },
         "additionalProperties": true
       }
@@ -37,51 +76,131 @@
       "items": {
         "type": "object",
         "properties": {
-          "heading": { "type": "string" },
-          "act": { "type": "string" },
-          "action": { "type": "string" },
-          "character": { "type": "string" },
-          "dialogue": { "type": "string" },
-          "location": { "type": "string" },
-          "duration": { "type": ["number", "string"] },
-          "notes": { "type": "string" },
-          "elements": { "type": "array" },
-          "comments": { "type": "array" }
+          "heading": {
+            "type": "string"
+          },
+          "act": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "character": {
+            "type": "string"
+          },
+          "dialogue": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "duration": {
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          },
+          "elements": {
+            "type": "array"
+          },
+          "comments": {
+            "type": "array"
+          },
+          "dialogueAlternatives": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "sceneAlternatives": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
         },
         "additionalProperties": true
       }
     },
-    "characters": { "type": "array" },
-    "locations": { "type": "array" },
-    "shootDays": { "type": "array" },
-    "shots": { "type": "array" },
-    "shortlists": { "type": "array" },
-    "people": { "type": "array" },
-    "equipment": { "type": "array" },
+    "characters": {
+      "type": "array"
+    },
+    "locations": {
+      "type": "array"
+    },
+    "shootDays": {
+      "type": "array"
+    },
+    "shots": {
+      "type": "array"
+    },
+    "shortlists": {
+      "type": "array"
+    },
+    "people": {
+      "type": "array"
+    },
+    "equipment": {
+      "type": "array"
+    },
     "productionPresets": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "kind", "name", "values"],
+        "required": [
+          "id",
+          "kind",
+          "name",
+          "values"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "kind": { "enum": ["shot", "lighting", "equipment"] },
-          "name": { "type": "string", "maxLength": 80 },
-          "values": { "type": "object" }
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "shot",
+              "lighting",
+              "equipment"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "values": {
+            "type": "object"
+          }
         },
         "additionalProperties": true
       }
     },
-    "tasks": { "type": "array" },
-    "revisions": { "type": "array" },
+    "tasks": {
+      "type": "array"
+    },
+    "revisions": {
+      "type": "array"
+    },
     "productionTemplates": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "sections": { "type": "array", "items": { "type": "string" } }
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         },
         "additionalProperties": true
       }
@@ -91,11 +210,23 @@
       "items": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "content": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
         },
         "additionalProperties": true
+      }
+    },
+    "storyBeats": {
+      "type": "array",
+      "items": {
+        "type": "object"
       }
     }
   },

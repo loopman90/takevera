@@ -4,6 +4,14 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
+- Add a scene-linked story board, alternative scene and primary-dialogue versions, selective restoration from revisions and local backups, an offline feedback round, scene read-aloud with local system voices, and script checks. These features do not lock production pages.
+
+- Add stable scene numbering, writing shortcuts, source-linked breakdown tags, dual-dialogue editing and basic FDX exchange, script reports and print revision marks. Locked production pagination is not yet supported.
+
+- Preview script-replacement impact and create a local full-project recovery point before replacing scenes; avoid guessing links for duplicate scene headings.
+- Summarize scene assignment impact, guide day-bundle PDF sharing, and show project health and recovery practice.
+- Add script exchange regression fixtures and update release and platform documentation.
+
 - Version 0.1.2: reorganized navigation and export controls; improved day overview, call sheets, safety briefings, backup guidance, save feedback, accessibility and logo sizing.
 - Added custom project pages.
 - Windows and Linux packages remain portable test builds; macOS builds are ad-hoc signed and not notarized.

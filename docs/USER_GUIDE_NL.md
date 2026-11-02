@@ -6,13 +6,13 @@ De meegeleverde Mac-app vereist macOS 13 Ventura of nieuwer. De ARM64-versie is 
 
 ## Een Mac-versie openen
 
-Er is nog geen officiële release. Een toekomstige open-sourceversie kan lokaal technisch zijn ondertekend, zonder betaald Apple Developer-account en zonder notarization. Die handtekening bewijst de identiteit van de maker niet; macOS kan de app bij de eerste start blokkeren.
+De 0.1.2-bètaversie is beschikbaar via de officiële GitHub-release. De Mac-versie is lokaal technisch ondertekend, zonder Apple Developer ID en zonder notarization. Die handtekening bewijst de identiteit van de maker niet; macOS kan de app bij de eerste start blokkeren.
 
-Download een toekomstige versie alleen via de officiële projectbron en controleer dat het bestand het verwachte, ongewijzigde bestand is. Probeer de app te openen. Blokkeert macOS de app, dan kan onder **Systeeminstellingen → Privacy en beveiliging** de optie **Open toch** verschijnen. Volg de [uitleg en veiligheidsadviezen van Apple](https://support.apple.com/en-us/102445). Verschijnt een melding dat de app malware bevat of beschadigd of gewijzigd is, open deze dan niet. De precieze tekst en beschikbaarheid verschillen per macOS-versie en beheerde computer.
+Download de versie alleen via de officiële projectbron en controleer dat het bestand het verwachte, ongewijzigde bestand is. Probeer de app te openen. Blokkeert macOS de app, dan kan onder **Systeeminstellingen → Privacy en beveiliging** de optie **Open toch** verschijnen. Volg de [uitleg en veiligheidsadviezen van Apple](https://support.apple.com/en-us/102445). Verschijnt een melding dat de app malware bevat of beschadigd of gewijzigd is, open deze dan niet. De precieze tekst en beschikbaarheid verschillen per macOS-versie en beheerde computer.
 
 ## Windows en Linux
 
-Er is een ongetekend draagbaar Windows x64-testpakket beschikbaar om te bouwen, maar het is nog niet gevalideerd op Windows en is geen installatieprogramma of officiële release. Pak het hele ZIP-bestand uit en start Takevera.exe; Windows kan waarschuwen of de app blokkeren. Voor Linux x64 is een draagbaar testpakket beschikbaar: pak het tar.gz-bestand volledig uit en start `./takevera` in de uitgepakte map. Een grafische omgeving en een werkende Chromium-sandbox zijn vereist; het is geen installatieprogramma of AppImage. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
+De 0.1.2-bètarelease bevat een ongetekend draagbaar Windows x64-testpakket. Het op Windows gebouwde pakket is automatisch gestart op een Windows-runner; interactieve validatie blijft nodig. Het is geen installatieprogramma. Pak het hele ZIP-bestand uit en start Takevera.exe; Windows kan waarschuwen of de app blokkeren. Voor Linux x64 is een draagbaar testpakket beschikbaar dat automatisch op een Linux-runner is gestart; interactieve validatie blijft nodig: pak het tar.gz-bestand volledig uit en start `./takevera` in de uitgepakte map. Een grafische omgeving en een werkende Chromium-sandbox zijn vereist; het is geen installatieprogramma of AppImage. Lokale OCR voor gescande PDF's is op macOS beschikbaar. Voor het opslaan van API-sleutels en samenwerkingstokens op Linux is een ondersteunde beveiligde sleutelopslag nodig.
 
 ## Hulp vinden
 
@@ -41,6 +41,18 @@ Open **Script** en maak een scène. Vul de scènekop, actie, personage en dialoo
 - Voeg scèneopmerkingen toe. Je kunt geselecteerde tekst aan een opmerking koppelen.
 
 Met de toetsenbordcombinaties **⌘/Ctrl+N**, **⌘/Ctrl+S** en **⌘/Ctrl+F** kun je respectievelijk een project maken, opslaan en zoeken. De scèneslijst ondersteunt de pijltjestoetsen en Home/End. Open de begrippenlijst via **Begrippenlijst** als je een productie- of scriptterm wilt opzoeken.
+
+### Verhaalbord, varianten en controle
+
+Open **Verhaalbord** om verhaalkaarten te maken, te ordenen en aan scènes te koppelen. Een kaart kan ook een nieuwe scène aanmaken; het verplaatsen van kaarten wijzigt de scriptvolgorde niet. Controleer koppelingen na het vervangen van een script.
+
+In de scripteditor kun je de eerste dialoog van een scène of de scripttekst van de hele scène als variant bewaren en later toepassen. Bij een scènevariant wordt de huidige scripttekst eerst ook bewaard; locatie, productiegegevens en reacties blijven staan. Bewaar bij een dialoogvariant eerst zelf de huidige dialoog als je die wilt behouden. Varianten staan in het Takevera-project en zijn niet standaard onderdeel van Fountain, FDX of DOCX.
+
+Gebruik **Scriptcontrole** voor signalen zoals ontbrekende scène¬koppen en dialoog zonder personage. Dit is een hulpmiddel en geen volledige kwaliteits- of opmaakgarantie. Met **Voorlezen** lees je de huidige scène met beschikbare lokale systeemstemmen; dubbele dialoog wordt na elkaar voorgelezen. Beschikbaarheid en stemmen verschillen per computer.
+
+### Reacties zonder account
+
+Maak vanuit het script een feedbackbestand en deel het zelf met de lezer. Dit HTML-bestand bevat de scripttekst van alle scènes; productienotities, contacten en afbeeldingen zijn niet opgenomen. De lezer opent het lokaal in een browser, schrijft reacties en slaat een antwoordbestand op. Deel dit antwoordbestand terug met de projecteigenaar en importeer het via het script; controleer het aantal gekoppelde reacties voordat je ze toevoegt. Bestanden worden niet automatisch verzonden.
 
 ## 3. Beheer de projectbijbel en breakdown
 
@@ -95,6 +107,8 @@ Shortlists kunnen zowel scriptpersonages als echte cast-/crewleden bevatten, naa
 Open **Taken** voor verantwoordelijken, deadlines en status. De statussen blijven correct als je de interfacetaal wijzigt. Veelvoorkomende productietaken en eerder gebruikte taaknamen en eigenaren verschijnen als suggesties; nieuwe invoer blijft mogelijk. De apparatuur- en breakdownvelden suggereren ook gebruikelijke apparatuur, categorieën en eerder ingevulde waarden. Kies per taak één draaidag of alle draaidagen; de call sheet toont de taken voor de geselecteerde dag. Als je een draaidag verwijdert, blijven de taken behouden en worden ze aan alle dagen gekoppeld. Shots van die dag gaan naar de eerstvolgende dag, of naar de vorige dag als je de laatste dag verwijdert. De startpagina toont de voortgang op basis van afgeronde taken. Gebruik **Budget** om ramingen, werkelijke bedragen, categorieën, eigenaars en valuta vast te leggen. Categorieën en eigenaren bieden gebruikelijke en eerder gebruikte suggesties; je kunt ook eigen waarden typen.
 
 ## 9. Revisies, afdrukken en back-ups
+
+**Scriptgeschiedenis** toont benoemde revisies en beschikbare lokale herstelpunten. Kies een scène en een punt om een enkel tekstveld te bekijken en terug te zetten; vooraf wordt een herstelpunt gemaakt. Dit is geen volledige geschiedenis van iedere toetsaanslag. Productiepagina’s met vaste paginanummers, A-pagina’s en vervallen scènes worden nog niet ondersteund; afdrukken wordt opnieuw gepagineerd.
 
 Bewaar een scriptrevisie met datum, versienummer en notitie. Vergelijk een revisie met de huidige tekst of kies twee opgeslagen revisies om onderling te vergelijken. Je kunt een revisie herstellen. Bij realtime samenwerking registreert de activiteitenlijst wie een wijziging opsloeg, wanneer dat gebeurde, welke scène veranderde en welke projectruimte werd bijgewerkt. De lijst bewaart maximaal 1.000 gebeurtenissen en meldt wanneer oudere items zijn verwijderd. Bij een wijziging aan één scène bewaart de lijst, zolang de scènevolgorde en het aantal scènes gelijk blijven, een begrensd herstelpunt voor de script-/revisievelden. Kies **Herstel script van vóór deze wijziging** om die velden terug te zetten; reacties en afbeeldingen blijven behouden. Er worden maximaal 20 herstelpunten van samen maximaal 1 MiB bewaard, met maximaal 128 KiB per punt. Te grote wijzigingen, scèneverplaatsingen en wijzigingen aan meerdere scènes blijven alleen als activiteit zichtbaar; maak daarvoor een benoemde revisie. Als een wijziging van een andere samenwerker binnenkomt, wordt de sessiegeschiedenis voor undo/redo met een melding opnieuw gestart om te voorkomen dat een oude momentopname nieuwere inhoud overschrijft. Revisiepagina's kunnen een kleur krijgen; zet achtergrondafbeeldingen aan in het afdrukvenster om die kleur in PDF te behouden.
 
@@ -151,3 +165,21 @@ Kies **Eerdere versie kiezen en herstellen** voor lokale herstelpunten: bevestig
 Ga naar **Productie → Dagoverzicht** en leg bij veiligheid de verantwoordelijkheden, communicatie, evacuatie en eventuele ondersteuning vast. Vul ook de datum in waarop de briefing is gecontroleerd en houd deze actueel. In **Call sheet** laat de controle vóór delen zien welke belangrijke gegevens nog ontbreken; controleer ook zelf de juistheid en actualiteit. Het dichtstbijzijnde ziekenhuis staat op de sheet, ook als contactgegevens niet worden gedeeld. De keuze voor contact- en noodgegevens bepaalt of die gegevens worden opgenomen; persoonlijke telefoonnummers worden alleen opgenomen wanneer ze bij de betreffende persoon zijn aangevinkt. Kies **Call sheet afdrukken** en sla via het afdrukvenster op als PDF om de daginformatie te delen. Controleer de PDF voordat je die verstuurt.
 
 Het dagoverzicht begint met de belangrijkste gegevens en een verwijzing naar de call sheet. Open de onderdelen Planning, Veiligheid en Scènes om ze te bewerken; de samenvatting blijft zichtbaar wanneer een onderdeel is ingeklapt. Onder **Draaiboek en rapporten** kies je eerst het gewenste document; daarna verschijnen de bijbehorende opties. De opslagstatus staat bovenaan. Bij een opslagfout blijft de melding staan en kun je **Opnieuw opslaan** kiezen.
+
+### Import, dagbundel en projectgezondheid
+
+Bij scriptimport vergelijkt Takevera de scènekoppen en toont hoeveel dag-, shot-, apparatuur-, shortlist-, storyboard- en tijdlijnkoppelingen door het vervangen vervallen. Overeenkomende namen worden niet automatisch gekoppeld. Voor het vervangen wordt een volledig lokaal herstelpunt gemaakt; een scriptrevisie alleen herstelt de productiegegevens niet. Herstel zo nodig via **Back-up en herstel**. Controleer na import de breakdown en leg de koppelingen opnieuw.
+
+Bij een wijziging in de dagtoewijzing toont het dagoverzicht de betrokken locatie, personagevermelding, shots en apparatuur. Controleer zelf personen, tijden en boekingen; deze worden niet automatisch verplaatst. Het planningsvoorstel blijft een voorstel en optimaliseert geen cast of opbouwtijd.
+
+Kies op de call sheet de dag en de contactkeuze en gebruik **Call sheet afdrukken**. De controle vooraf beschrijft de inhoud en naam; kies in het systeemvenster **Bewaar als PDF**, bekijk de PDF en deel hem zelf. Via de back-upknop zie je projectgezondheid en kun je een volledige back-up importeren als nieuw project om herstel te oefenen. Alleen de geselecteerde back-up wordt dan daadwerkelijk gecontroleerd.
+
+### Schrijven en produceren
+
+Gebruik Tab om tussen velden te bewegen en ⌘/Ctrl+Enter om naar het volgende tekstblok te gaan. Schakel desgewenst de Enter-modus in: druk bij actie of dialoog op Enter op een lege laatste regel; Shift+Enter blijft een nieuwe regel. Aan het einde voegt deze sneltoets een personage- en dialoogblok toe. Je kunt tekst selecteren en via **Selectie voor breakdown** als bijvoorbeeld rekwisiet toevoegen. In Breakdown kun je naar de bron terug; als de tekst is gewijzigd, vraagt de app om controle.
+
+Met **Scènenummers vastzetten** behouden bestaande scènes hun nummer bij herschikken; nieuwe scènes krijgen een nieuw nummer. FDX bewaart deze nummers waar aanwezig. Vervangen van het script schakelt vaste nummering uit. **Paginanummers zijn niet vastgezet:** controleer ze opnieuw voor iedere productieversie.
+
+Kies een opgeslagen revisie bij **Vergelijk afdruk met revisie** om nieuwe of gewijzigde huidige regels met een sterretje te markeren. Je kunt alleen gemarkeerde pagina's afdrukken. Verwijderde tekst verschijnt niet op de afdruk en wijzigingen kunnen extra regels door herafbreking markeren; gebruik ook de revisievergelijking. Dit is geen vergrendeld productiepaginasysteem.
+
+Voeg bij de scriptelementen **Gelijktijdige dialoog** toe voor twee kolommen. FDX bewaart de ondersteunde twee-sprekerstructuur; controleer dit in het andere programma. Fountain en DOCX voeren beide stemmen na elkaar uit en bewaren geen kolomindeling. Revisiemarkeringen binnen gelijktijdige FDX-dialoog worden niet bewaard. Onder **Draaiboek en rapporten** zijn scènes per locatie, scènes per personage en dialoog per personage beschikbaar. Deze overzichten gebruiken de ingevoerde locatie en personagevermeldingen; controleer of die volledig zijn.

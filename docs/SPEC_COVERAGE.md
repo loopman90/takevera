@@ -6,7 +6,7 @@ Deze kaart vergelijkt de oorspronkelijke Takevera-specificatie met de huidige co
 
 | Onderdeel | Status | Huidige dekking |
 | --- | --- | --- |
-| Projecten en scripts | Aanwezig | Projectwizard, lokale JSON-opslag, autosave, scènebeheer, scriptvormen voor film, theater, podcast, commercial en documentaire, zoeken/vervangen, print/export en herstelpunten. |
+| Projecten en scripts | Aanwezig | Projectwizard, lokale JSON-opslag, autosave, scènebeheer, vaste scènenummers, schrijfsneltoetsen, gelijktijdige dialoog, zoeken/vervangen, print/export en herstelpunten. Paginanummers blijven dynamisch. |
 | Projectbijbel en productiegegevens | Aanwezig | Personages, locaties, tijdlijn, continuïteit, script-breakdown en per-scène-inventaris met controlemarkeringen. |
 | Visuele referenties | Aanwezig | PNG, JPEG en WebP kunnen worden gekopieerd of gekoppeld; moodboards, storyboard, licht- en geluidsreferenties ondersteunen metadata, slepen en neerzetten en bundeling. |
 | Productieplanning en call sheets | Aanwezig | Draaidagen, scènes, voorlopige planning, call sheets, contacttoestemming, veiligheidsgegevens, weer/daglicht na bevestiging en on-set weergave. |
@@ -20,8 +20,11 @@ Deze kaart vergelijkt de oorspronkelijke Takevera-specificatie met de huidige co
 | Apparatuurfilters en presets | Aanwezig met grenzen | Filter apparatuur op draaidag en status; meldingen tonen nog te regelen items, aantallen van nul en mogelijk dubbele namen. Herbruikbare shot-, licht- en apparatuurpresets worden in het project bewaard. Dubbele namen bewijzen geen gelijktijdige boeking. Exemplaren en zelf ingevoerde tijdgebonden boekingen tonen mogelijke overlap; volledigheid en beschikbaarheid moeten handmatig worden gecontroleerd. |
 | Licht- en geluidsplannen | Aanwezig | Gestructureerde opstellingen, referentieafbeeldingen en lichtmarkers op een achtergrondafbeelding; afzonderlijke rapporten en draaiboekuitvoer. |
 | Taken en begroting | Aanwezig | Verantwoordelijken, deadlines, statussen, valuta, ramingen en werkelijke bedragen. |
-| Scriptrevisies | Aanwezig voor benoemde rondes | Benoemde snapshots kunnen worden vergeleken en hersteld; FDX-revisiemarkeringen worden beperkt ingelezen en uitgevoerd. |
-| DOCX en FDX | Gedeeltelijk | Gangbare scriptstructuren worden ondersteund. Extra Takevera-productiegegevens reizen mee in een optionele DOCX-projectbijlage of een expliciete FDX-zijfile; gewone bestanden dragen deze gegevens niet. Complexe opmaak en sommige revisiedetails kunnen verloren gaan. |
+| Verhaal en schrijfcontrole | Gedeeltelijk | Verhaalkaarten zijn aan scènes te koppelen; alternatieve scène- en eerste dialoogteksten kunnen lokaal worden bewaard. Scriptcontrole signaleert enkele veelvoorkomende problemen en is geen volledige validatie. |
+| Feedback en voorlezen | Gedeeltelijk | Een lokaal HTML-verzoek met scripttekst en een handmatig gedeeld antwoordbestand maken reacties per scène mogelijk. Voorlezen gebruikt beschikbare lokale systeemstemmen voor de huidige scène; dubbele dialoog volgt na elkaar. |
+| Productiepagina’s | Ontbreekt | Vaste pagina’s, A-pagina’s en vervallen scènes zijn niet geïmplementeerd. Pagina’s worden bij afdrukken opnieuw berekend. |
+| Scriptrevisies | Aanwezig voor benoemde rondes | Benoemde snapshots kunnen worden vergeleken en hersteld; huidige nieuwe of gewijzigde regels kunnen ten opzichte van een snapshot worden gemarkeerd en pagina’s met markeringen kunnen worden afgedrukt. Verwijderde tekst verschijnt niet op die afdruk; paginering wordt niet vergrendeld. FDX-revisiemarkeringen worden beperkt ingelezen en uitgevoerd. |
+| DOCX en FDX | Gedeeltelijk | Gangbare scriptstructuren en beperkte FDX-uitwisseling van scène­nummer en gelijktijdige dialoog worden ondersteund; test met echte bestanden uit andere programma’s blijft nodig. Fountain en DOCX voeren gelijktijdige dialoog na elkaar uit. Extra Takevera-productiegegevens reizen mee in een optionele DOCX-projectbijlage of een expliciete FDX-zijfile; gewone bestanden dragen deze gegevens niet. Complexe opmaak en sommige revisiedetails kunnen verloren gaan. |
 | Productieboek | Aanwezig | Bewerkbare, per project opgeslagen sjablonen; volledige productie of actieve draaidag; eigen secties, selectie en volgorde; print/PDF via het systeemdialoogvenster. |
 
 ## Fase 3 — AI en samenwerking
@@ -41,7 +44,7 @@ Deze kaart vergelijkt de oorspronkelijke Takevera-specificatie met de huidige co
 | Eigen projectformaat | Aanwezig | Gedocumenteerd JSON-formaat en schema; export/import van projectbundels en volledige projectmappen met afbeeldingshashes. |
 | Celtx | Niet geïmplementeerd | Er is geen ondersteunde, toegestane import-/exportmethode opgenomen; de app claimt geen Celtx-compatibiliteit en reverse-engineert geen beschermd formaat. |
 | macOS | Gebouwd | Apple Silicon- en Intel-DMG/ZIP-pakketten. De ARM64-versie is op deze Mac gebouwd; Intel is verpakt maar niet interactief op Intel-hardware gevalideerd. |
-| Windows en Linux | Niet gevalideerd | Een ongetekend draagbaar Windows-testpakket en een Windows-controleworkflow zijn voorbereid; runtime en installatie moeten op het doelbesturingssysteem worden gevalideerd. macOS-specifieke PDF-OCR werkt daar niet. |
+| Windows en Linux | Automatisch getest, interactieve validatie open | De platformgebouwde 0.1.2-testpakketten zijn op Windows- en Linux-runners automatisch gestart; interface-, opslag-, beveiligings- en PDF-smoketests zijn uitgevoerd. Interactieve tests en echte installers ontbreken; de pakketten zijn draagbaar en Windows is ongetekend. macOS-specifieke PDF-OCR werkt daar niet. |
 | Ondertekening en updates | Beperkt | Lokale Mac-builds zijn ad-hoc ondertekend, zonder Developer ID en zonder notarization. Er is geen automatische updater; voor publieke distributie is een Apple Developer ID-certificaat en notarization nodig. Maak een back-up vóór een grote update. |
 
 ## Gebruiksgemak, privacy en eerste gebruik

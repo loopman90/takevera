@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FinalDraft DocumentType="Script" Template="No" Version="1"><Content>
+<Paragraph Type="Scene Heading"><Text>INT. STATION - DAY</Text></Paragraph>
+<Paragraph Type="Action"><Text>A train arrives.</Text></Paragraph>
+<Paragraph Type="Character"><Text>MARA</Text></Paragraph>
+<Paragraph Type="Dialogue"><Text RevisionID="1">We should go.</Text></Paragraph>
+<Paragraph Type="Scene Heading"><Text>EXT. STREET - NIGHT</Text></Paragraph>
+<Paragraph Type="Action"><Text>The street is quiet.</Text></Paragraph>
+</Content><Revisions><Revision ID="1" Name="Blue" Color="#00000000FFFF" Mark="*"/></Revisions></FinalDraft>

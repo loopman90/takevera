@@ -7,13 +7,13 @@ The packaged Mac app requires macOS 13 Ventura or newer. The ARM64 build was mad
 
 ## Open a Mac build
 
-There is no official release yet. A future open-source build may use an ad-hoc signature without a paid Apple Developer account and without Apple notarization. An ad-hoc signature does not establish the developer’s identity; macOS may block the first launch.
+The 0.1.2 beta is available from the official GitHub release. The Mac build uses an ad-hoc signature without Apple Developer ID signing or notarization. An ad-hoc signature does not establish the developer’s identity; macOS may block the first launch.
 
-Obtain any future release from the official project source and check that it is the expected, unmodified file. Try opening the app first. If macOS blocks it, **System Settings → Privacy & Security** may offer **Open Anyway**. Follow [Apple’s instructions and safety guidance](https://support.apple.com/en-us/102445). Do not open an app reported as malware, damaged or modified. Wording and availability depend on the macOS version and device management.
+Obtain the release from the official project source and check that it is the expected, unmodified file. Try opening the app first. If macOS blocks it, **System Settings → Privacy & Security** may offer **Open Anyway**. Follow [Apple’s instructions and safety guidance](https://support.apple.com/en-us/102445). Do not open an app reported as malware, damaged or modified. Wording and availability depend on the macOS version and device management.
 
 ## Windows and Linux
 
-An unsigned portable Windows x64 test package can be built, but has not yet been validated on Windows and is not an installer or official release. Extract the whole ZIP and open Takevera.exe; Windows may warn or block it. A portable Linux x64 test archive is available: extract the full tar.gz file and run `./takevera` in the extracted folder. A graphical desktop and a working Chromium sandbox are required; this is not an installer or AppImage. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
+The 0.1.2 beta includes an unsigned portable Windows x64 test package. The Windows-built package passed an automated startup check on a Windows runner; interactive validation is still needed. It is not an installer. Extract the whole ZIP and open Takevera.exe; Windows may warn or block it. A portable Linux x64 test archive passed an automated startup check on a Linux runner; interactive validation is still needed: extract the full tar.gz file and run `./takevera` in the extracted folder. A graphical desktop and a working Chromium sandbox are required; this is not an installer or AppImage. Local OCR for scanned PDFs is available on macOS. Saving API keys and collaboration tokens on Linux requires a supported secure secret store.
 
 ## Find help
 
@@ -152,3 +152,31 @@ Choose **Choose and restore an earlier version** to review local restore points 
 Under **Production → Day overview**, record safety responsibilities, communication, evacuation and any assistance needed. Enter the date the briefing was reviewed and keep it current. In **Call sheet**, the pre-sharing check highlights important missing information; also check the accuracy and currency yourself. The nearest hospital appears even when contact details are excluded. The contact and emergency details option controls whether those details are included; personal phone numbers are included only when selected for the person. Choose **Print call sheet** and save as PDF in the print dialog to share the day's information. Check the PDF before sending it.
 
 The day overview starts with the key details and a link to the call sheet. Open the schedule, safety and scenes sections to edit them; each section shows a summary when collapsed. Under **Production book and reports**, choose the document first to see its relevant options. The save status appears at the top. If saving fails, the message remains visible and you can choose **Retry save**.
+
+### Import, day bundle and project health
+
+Before replacing a script, Takevera compares scene headings and counts affected day, shot, equipment, shortlist, storyboard and timeline links. Matching headings are not linked automatically. A full local recovery point is created first; a script revision alone does not restore production links. If needed, restore through **Backup and recovery**. Review breakdowns and relink production records after import.
+
+Changing a scene's day assignment reports the location, character cue, shots and equipment to review. Check people, timing and bookings yourself; these do not move automatically. Scheduling suggestions do not optimize cast or setup time.
+
+Choose the day and contact option on the call sheet and select **Print call sheet**. The review describes the contents and suggested filename; choose **Save as PDF** in the system dialog, review the PDF and share it yourself. The backup button opens project health and lets you practice recovery by importing a full backup as a new project. Only the selected backup is actually checked.
+
+### Writing and production
+
+Use Tab to move between fields and Cmd/Ctrl+Enter to move to the next text block. Optionally enable Enter mode: in action or dialogue press Enter on a blank final line; Shift+Enter still inserts a new line. At the end this shortcut adds a character and dialogue block. Select script text and use **Selection for breakdown** to add, for example, a prop. In Breakdown you can return to its source; changed source text is flagged for review.
+
+**Lock scene numbers** keeps existing numbers when scenes are reordered; new scenes receive a new number. FDX preserves these numbers where present. Replacing the script disables locked numbering. **Page numbers are not locked:** check them again for each production version.
+
+Choose a saved revision under **Compare print with revision** to mark new or changed current lines with asterisks. You can print only marked pages. Removed text is not shown, and reflow can mark additional lines; also use the revision comparison. This is not locked production pagination.
+
+Add **Dual dialogue** under script elements for two columns. FDX preserves the supported two-speaker structure; check the result in the other application. Fountain and DOCX output both speakers sequentially and do not preserve the columns. Revision marks inside FDX dual dialogue are not preserved. **Production book and reports** includes scenes by location, scenes by character and dialogue by character. These reports use entered locations and character cues; check that they are complete.
+
+## Story development and feedback
+
+Use Story board to create and reorder beats and link them to scenes; reordering beats does not reorder the script. Check links after replacing a script. In the script editor, save alternatives for the first dialogue or the whole scene’s script text. Applying a scene version first saves the current text; production data and comments stay in place. Save the current dialogue yourself before applying a dialogue alternative. These alternatives live in the Takevera project and are not normally exchanged in Fountain, FDX or DOCX.
+
+Script history lists named revisions and available local recovery points, and can restore a single text field after creating a recovery point. It is not a complete keystroke history. Script checks provide suggestions, not a guarantee. Read aloud uses available local system voices for the current scene; dual dialogue is read sequentially.
+
+For an offline feedback round, export the HTML file from the script and share it yourself. It includes all scene script text, but not production notes, contacts or images. The reader opens it locally, writes comments and saves a response file to return to you. Import the response and review the matched count before adding comments. No file is sent automatically.
+
+Production page locking, A-pages and omitted pages are not supported; print pagination is recalculated.

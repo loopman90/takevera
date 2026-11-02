@@ -27,6 +27,8 @@ contextBridge.exposeInMainWorld('studio',{
  exportProjectFolder:p=>ipcRenderer.invoke('projects:export-folder',p),
  importProjectFolder:id=>ipcRenderer.invoke('projects:import-folder',id),
  importAssets:(id,assets)=>ipcRenderer.invoke('projects:import-assets',id,assets),
+ exportFeedback:request=>ipcRenderer.invoke('feedback:export',request),
+ importFeedback:()=>ipcRenderer.invoke('feedback:import'),
  importFountain:()=>ipcRenderer.invoke('script:fountain:import'),
  exportFountain:(title,text)=>ipcRenderer.invoke('script:fountain:export',title,text),
  importFDX:()=>ipcRenderer.invoke('script:fdx:import'),
