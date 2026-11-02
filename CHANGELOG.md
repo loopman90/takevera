@@ -4,6 +4,8 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
+## 0.1.4-beta.1 — 2026-11-02
+
 ### Added
 
 - Project overview with suggested next steps, configurable navigation, scene preparation summaries, shoot-day overview, and production closeout checks.
@@ -22,7 +24,7 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ### Known limitations
 
-- macOS packages are ad-hoc signed and not notarized. Windows and Linux cross-built archives are unsigned portable test packages, not installers; they require interactive platform testing.
+- macOS packages are ad-hoc signed and not notarized. Windows and Linux archives are unsigned portable test packages, not installers; native builds passed automated startup checks but still require interactive platform testing.
 - Call-sheet issue data are recorded, but the issued PDF must be saved separately. Realtime collaboration still requires a self-hosted server.
 - Previously incorrect schedule links cannot be identified automatically. Review older projects, and back up before updating.
 
