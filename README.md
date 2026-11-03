@@ -19,7 +19,9 @@ Read the [English beginner’s guide](docs/USER_GUIDE_EN.md) or [Nederlandse beg
 ## Features
 
 - **Writing:** structured scenes, script blocks, character and location suggestions, scene cards, revisions and print/PDF output.
-- **Production:** shoot days, call sheets, shot lists, equipment, tasks, budgets, and configurable production-book exports.
+- **Production:** shoot days, visual schedules, cast and shot links, availability windows, equipment bookings, conflict warnings, tasks, budgets and production-book exports.
+- **Call sheets and breakdowns:** issue history and change detection, manual distribution tracking, reusable breakdown items and production reports. Save each issued PDF separately.
+- **Story and workspace:** story cards and structure templates, outline export, production-phase overview, full-screen document viewing and controls to hide workspace panels.
 - **Visual planning:** moodboards, storyboards, lighting and sound references, plus fixture markers on a reference image.
 - **Local-first:** local project files, automatic saves, backups and an independent full-project export.
 - **Optional integrations:** Claude, Gemini, Grok, an OpenAI-compatible endpoint or separately installed local model server, and manually configured shared-folder or self-hosted realtime collaboration. Selected AI context is sent only after review and confirmation.
@@ -30,6 +32,10 @@ These features are implemented in the development app; not every workflow has be
 ## Platforms and installation
 
 The [0.1.4 beta release](https://github.com/loopman90/takevera/releases/tag/v0.1.4-beta.1) provides macOS DMGs and portable Windows and Linux test packages. Verify downloads using the included SHA-256 checksums.
+
+- [macOS Apple Silicon](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-arm64.dmg) · [macOS Intel](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-x64.dmg)
+- [Windows x64 test package](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-windows-x64-test.zip) · [Linux x64 test package](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-linux-x64-tested.tar.gz)
+- [SHA-256 checksums](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/SHA256SUMS.txt)
 
 | Platform | Current state |
 | --- | --- |
@@ -76,6 +82,19 @@ python3 -m http.server 4173 --directory website/dist
 
 Open `http://127.0.0.1:4173/` locally. Review screenshot privacy and rights before publishing. The site has a manual-only deployment workflow; repository and Pages publication require separate approval. See [website/README.md](website/README.md).
 
+### Equipment bookings and planning
+
+Track individual physical equipment units and enter bookings with local start and end times in Production → Equipment list. Takevera flags overlapping or incomplete entries; scene assignments do not automatically create bookings. Review availability, preparation time and timeline warnings in the shoot day overview. Import previews describe recognised script content and limitations, and FDX/DOCX exports are read back and checked. Check formatting in the destination application. See the included user guides for details.
+
+### Windows x64 test package
+
+On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The 0.1.4 platform-built package passed its automated startup check; further interactive testing is needed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.
+
+### Linux x64 test package
+
+The Linux x64 test archive is portable, not an installer. Extract the whole archive and run `./takevera` from the extracted folder on a graphical desktop with a working Chromium sandbox. It is built and checked by the manual `linux-test.yml` workflow. Linux desktop distributions and credential stores vary; interactive testing remains necessary. Local OCR for scanned PDFs is unavailable on Linux.
+
+
 ## Contributing and project direction
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [ROADMAP.md](ROADMAP.md) and [CHANGELOG.md](CHANGELOG.md). The latest full dependency audit reported no vulnerabilities; recheck before release. See [dependency security](docs/DEPENDENCY_SECURITY.md) for build details and limitations.
@@ -83,15 +102,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), [CODE_OF_CON
 ## Licensing
 
 The owner selected the [MIT licence](LICENSE) and identified Astrid Roel as copyright holder. The owner confirmed 2026, the public contact details and rights to the provided logo and sample content. Third-party licence obligations still require review. Bundled font licences are in [src/fonts/](src/fonts/); see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for dependency notices and outstanding review.
-
-### Equipment bookings and planning
-
-Track individual physical equipment units and enter bookings with local start and end times in Production → Equipment list. Takevera flags overlapping or incomplete entries; scene assignments do not automatically create bookings. Review availability, preparation time and timeline warnings in the shoot day overview. Import previews describe recognised script content and limitations, and FDX/DOCX exports are read back and checked. Check formatting in the destination application. See the included user guides for details.
-
-### Windows x64 test package
-
-On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The 0.1.2 platform-built package passed its automated startup check; further interactive testing is needed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.
-
-### Linux x64 test package
-
-The Linux x64 test archive is portable, not an installer. Extract the whole archive and run `./takevera` from the extracted folder on a graphical desktop with a working Chromium sandbox. It is built and checked by the manual `linux-test.yml` workflow. Linux desktop distributions and credential stores vary; interactive testing remains necessary. Local OCR for scanned PDFs is unavailable on Linux.
