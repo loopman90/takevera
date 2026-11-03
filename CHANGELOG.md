@@ -4,6 +4,11 @@ Changes follow the spirit of [Keep a Changelog](https://keepachangelog.com/) and
 
 ## Unreleased
 
+## 0.1.5-beta.1 — 2026-11-03
+
+- Remove the question mark from the Help me button.
+- Windows and Linux packages are cross-built portable test archives, not installers, and have not been tested on their target platforms.
+
 ## 0.1.4-beta.1 — 2026-11-02
 
 ### Added

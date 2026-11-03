@@ -4,7 +4,7 @@ A local-first desktop workspace for writing scripts and preparing production boo
 
 ![Takevera script editor with a fictional example project](website/assets/screenshots/script.png)
 
-**Status:** version 0.1.4 beta is a development release. Download it from [GitHub Releases](https://github.com/loopman90/takevera/releases/tag/v0.1.4-beta.1); see also the [project website](https://loopman90.github.io/takevera/). The project uses the MIT licence.
+**Status:** version 0.1.5 beta is a development release. Download it from [GitHub Releases](https://github.com/loopman90/takevera/releases/tag/v0.1.5-beta.1); see also the [project website](https://loopman90.github.io/takevera/). The project uses the MIT licence.
 
 ## Start here
 
@@ -12,7 +12,7 @@ A local-first desktop workspace for writing scripts and preparing production boo
 2. Open Takevera and choose **New project**. A new installation starts without projects.
 3. Open **Script** and add a scene. Changes are saved locally.
 4. Open **Production** for shoot days, shot lists, equipment, lighting and call sheets.
-5. Select **? Help me** in the app to search instructions, learn about the current screen or open the full guide offline.
+5. Select **Help me** in the app to search instructions, learn about the current screen or open the full guide offline.
 
 Read the [English beginner’s guide](docs/USER_GUIDE_EN.md) or [Nederlandse beginnershandleiding](docs/USER_GUIDE_NL.md).
 
@@ -31,17 +31,17 @@ These features are implemented in the development app; not every workflow has be
 
 ## Platforms and installation
 
-The [0.1.4 beta release](https://github.com/loopman90/takevera/releases/tag/v0.1.4-beta.1) provides macOS DMGs and portable Windows and Linux test packages. Verify downloads using the included SHA-256 checksums.
+The [0.1.5 beta release](https://github.com/loopman90/takevera/releases/tag/v0.1.5-beta.1) provides macOS DMGs and portable Windows and Linux test packages. Verify downloads using the included SHA-256 checksums.
 
-- [macOS Apple Silicon](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-arm64.dmg) · [macOS Intel](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-x64.dmg)
-- [Windows x64 test package](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-windows-x64-test.zip) · [Linux x64 test package](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/Takevera-0.1.4-linux-x64-tested.tar.gz)
-- [SHA-256 checksums](https://github.com/loopman90/takevera/releases/download/v0.1.4-beta.1/SHA256SUMS.txt)
+- [macOS Apple Silicon](https://github.com/loopman90/takevera/releases/download/v0.1.5-beta.1/Takevera-0.1.5-arm64.dmg) · [macOS Intel](https://github.com/loopman90/takevera/releases/download/v0.1.5-beta.1/Takevera-0.1.5-x64.dmg)
+- [Windows x64 test package](https://github.com/loopman90/takevera/releases/download/v0.1.5-beta.1/Takevera-0.1.5-windows-x64-experimental.zip) · [Linux x64 test package](https://github.com/loopman90/takevera/releases/download/v0.1.5-beta.1/Takevera-0.1.5-linux-x64-experimental.tar.gz)
+- [SHA-256 checksums](https://github.com/loopman90/takevera/releases/download/v0.1.5-beta.1/SHA256SUMS.txt)
 
 | Platform | Current state |
 | --- | --- |
 | macOS 13+ | Apple Silicon and Intel packages can be built. Local builds are ad-hoc signed, without Apple Developer ID signing or notarization. Intel hardware testing remains outstanding. |
-| Windows x64 | An unsigned portable test archive passed an automated Windows startup check. It is not an installer; interactive testing remains needed. |
-| Linux x64 | The platform-built portable test archive passed an automated Linux startup check. Interactive use across distributions needs further validation. |
+| Windows x64 | An unsigned portable test archive is cross-built and has not been tested on Windows. It is not an installer. |
+| Linux x64 | The portable test archive is cross-built and has not been tested on Linux. Interactive validation is needed. |
 
 macOS development build: open the DMG and drag Takevera to Applications. Keep an independent backup before replacing an existing installation. There is no automatic update service.
 
@@ -88,7 +88,7 @@ Track individual physical equipment units and enter bookings with local start an
 
 ### Windows x64 test package
 
-On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The 0.1.4 platform-built package passed its automated startup check; further interactive testing is needed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.
+On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP and its SHA-256 checksum are written into a new `dist/windows-test-*` folder. Extract the whole archive before opening `Takevera.exe`. The ZIP is unsigned and Windows may warn or block it. This is a test package, not an installer. The manually started GitHub Actions workflow `.github/workflows/windows-test.yml` runs checks on a Windows runner and uploads a temporary artifact; it does not publish a release. The 0.1.4 platform-built package passed its automated startup check; the 0.1.5 cross-build has not been tested on Windows; further interactive testing is needed. Windows OCR for scanned PDFs is not implemented; selectable PDF text remains supported.
 
 ### Linux x64 test package
 
