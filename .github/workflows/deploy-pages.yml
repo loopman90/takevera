@@ -31,7 +31,7 @@ jobs:
         run: node -e "const c=require('./website/site-config.json');if(!c.repositoryUrl)throw Error('Set approved repository URL before deployment')"
       - run: node website/build.mjs
       - run: node website/check.mjs
-      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with: {path: website/dist}
   deploy:
     needs: build
