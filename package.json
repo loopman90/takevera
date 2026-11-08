@@ -64,7 +64,7 @@
   "dependencies": {
     "@hocuspocus/provider": "^4.8.0",
     "@hocuspocus/server": "^4.8.0",
-    "pdfjs-dist": "6.4.299",
+    "pdfjs-dist": "6.5.438",
     "y-indexeddb": "^9.0.12",
     "yjs": "^13.6.33"
   },
