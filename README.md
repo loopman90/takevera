@@ -39,9 +39,9 @@ The [0.1.5 beta release](https://github.com/loopman90/takevera/releases/tag/v0.1
 
 | Platform | Current state |
 | --- | --- |
-| macOS 13+ | Apple Silicon and Intel packages can be built. Local builds are ad-hoc signed, without Apple Developer ID signing or notarization. Intel hardware testing remains outstanding. |
-| Windows x64 | An unsigned portable test archive is cross-built and has not been tested on Windows. It is not an installer. |
-| Linux x64 | The portable test archive is cross-built and has not been tested on Linux. Interactive validation is needed. |
+| macOS 13+ | DMG downloads for Apple Silicon and Intel are available. They are ad-hoc signed and not notarized; macOS may warn or block them. Intel hardware testing remains outstanding. |
+| Windows x64 | The unsigned experimental ZIP is a portable test package, not a Windows installer. Version 0.1.5 was built on macOS and has not been tested on Windows. |
+| Linux x64 | The experimental archive is a portable test package, not an installer or AppImage. Version 0.1.5 was built on macOS and has not been tested on Linux. |
 
 macOS development build: open the DMG and drag Takevera to Applications. Keep an independent backup before replacing an existing installation. There is no automatic update service.
 
@@ -92,7 +92,7 @@ On Windows x64, run `npm ci` and `npm run build:windows:test`. The portable ZIP 
 
 ### Linux x64 test package
 
-The Linux x64 test archive is portable, not an installer. Extract the whole archive and run `./takevera` from the extracted folder on a graphical desktop with a working Chromium sandbox. It is built and checked by the manual `linux-test.yml` workflow. Linux desktop distributions and credential stores vary; interactive testing remains necessary. Local OCR for scanned PDFs is unavailable on Linux.
+The Linux x64 test archive is portable, not an installer. Extract the whole archive and run `./takevera` from the extracted folder on a graphical desktop with a working Chromium sandbox. Version 0.1.5 was cross-built on macOS and has not been tested on Linux; the separate manual `linux-test.yml` workflow can build and check a Linux package. Linux desktop distributions and credential stores vary; interactive testing remains necessary. Local OCR for scanned PDFs is unavailable on Linux.
 
 
 ## Contributing and project direction
